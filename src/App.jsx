@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import About from './components/About'
 
 
 const App = () => {
@@ -9,6 +10,7 @@ const App = () => {
       <Navbar />
       <div className='min-h-screen bg-(--dark-bg) px-30 text-(--text-color)'>
         <Hero />
+        <About />
       </div>
     </>
     
