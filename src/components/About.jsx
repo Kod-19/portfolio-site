@@ -5,16 +5,20 @@ import jsIcon from '../assets/javascript_icon.png';
 import expressIcon from '../assets/express_icon.png';
 import mongoIcon from '../assets/mongodb_icon.png';
 import tailwindIcon from '../assets/tailwindcss_icon.png';
+import Title from './Title';
 
 const About = () => {
   return (
-    <>
-        <h3 className='pt-50 font-medium uppercase text-(--primary-color)'>About Me</h3>
+    <div id='about'>
+        <Title title='about me' />
         <div className='grid grid-cols-2 pt-20'>
             <div className='flex flex-col'>
-                <p className='text-3xl text-(--title-color) font-bold'>A focused creator for useful, memorable web products.</p>
+                <p className='text-3xl text-(--title-color) font-bold'>A focused creator building for the web</p>
                 <p className='font-medium text-(--text-color) pt-10 text-lg'>
-                    I combine visual design, front-end craft, and product thinking to turn rough ideas into interfaces people can understand quickly and enjoy using.
+                    I’m a developer who enjoys learning by building. Instead of just watching tutorials, I prefer working on real projects that challenge me to think and improve. Over time, I’ve grown from understanding basic JavaScript to building full-stack applications that connect frontend interfaces with powerful backend systems.
+                </p>
+                <p className='font-medium text-(--text-color) pt-10 text-lg'>
+                    I care about clean code, good design, and creating projects that solve real problems. Every project I build helps me grow stronger as a developer and move closer to building impactful digital products.
                 </p>
             </div>
 
@@ -56,7 +60,7 @@ const About = () => {
                 </div>
             </div>
         </div>
-    </>
+    </div>
   )
 }
 
