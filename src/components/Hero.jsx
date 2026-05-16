@@ -23,21 +23,21 @@ const Hero = () => {
             </p>
             <div className='flex pt-20 gap-4 text-(--title-color) font-medium transition-all'>
                 <a href='#projects'><button className='bg-(--tertiary-color) px-5 py-3 rounded-lg cursor-pointer hover:scale-105 duration-100'>View Projects</button></a>
-                <a href='#contact'><button className='bg-(--dark-bg-color) px-5 py-3 rounded-lg border border-gray-400 cursor-pointer hover:scale-105 duration-100'>Contact Me</button></a>
+                <a href='#contact'><button className='bg-(--card-bg) px-5 py-3 rounded-lg border border-gray-400 cursor-pointer hover:scale-105 duration-100'>Contact Me</button></a>
             </div>
         </div>
 
         <div className='flex flex-col items-center'>
             <div>
-                <img className='w-75 rounded-full hover:scale-105 duration-100' src={profile_pic} alt="" />
+                <img className='w-75 rounded-full' src={profile_pic} alt="" />
                 <p className='text-(--title-color) font-bold text-2xl text-center pt-10'>Kwame Dawson</p>
                 <p className='text-(--text-color) font-medium text-lg text-center'>Full Stack Developer - MERN Stack</p>
             </div>
-            <div className='flex gap-9 pt-23'>
-                <a href="https://www.linkedin.com/in/kwameofeidawson?utm_source=share_via&utm_content=profile&utm_medium=member_ios"><img className='w-9 h-9' src={linkedInIcon} alt="LinkedIn" /></a>
-                <a href="https://github.com/Kod-19"><img className='w-9 h-9' src={githubIcon} alt="GitHub" /></a>
-                <a href="https://snapchat.com/t/UFDTyOJG"><img className='w-9 h-9' src={snapchatIcon} alt="Snapchat" /></a>
-                <a href="https://wa.me/0505734529"><img className='w-9 h-9' src={whatsappIcon} alt="WhatsApp" /></a>
+            <div className='flex gap-9 pt-23 transition-all'>
+                <a className='hover:scale-105 duration-150' href="https://www.linkedin.com/in/kwameofeidawson?utm_source=share_via&utm_content=profile&utm_medium=member_ios"><img className='w-9 h-9' src={linkedInIcon} alt="LinkedIn" /></a>
+                <a className='hover:scale-105 duration-150' href="https://github.com/Kod-19"><img className='w-9 h-9' src={githubIcon} alt="GitHub" /></a>
+                <a className='hover:scale-105 duration-150' href="https://snapchat.com/t/UFDTyOJG"><img className='w-9 h-9' src={snapchatIcon} alt="Snapchat" /></a>
+                <a className='hover:scale-105 duration-150' href="https://wa.me/0505734529"><img className='w-9 h-9' src={whatsappIcon} alt="WhatsApp" /></a>
             </div>
         </div>
     </div>
