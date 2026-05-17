@@ -1,9 +1,5 @@
 import React from 'react'
 import profile_pic from '../assets/profile_pic.jpg'
-import linkedInIcon from '../assets/linkedIn_icon.png';
-import githubIcon from '../assets/github_icon.png';
-import snapchatIcon from '../assets/snapchat_icon.png';
-import whatsappIcon from '../assets/whatsapp_icon.png';
 
 const Hero = () => {
   return (
@@ -31,14 +27,20 @@ const Hero = () => {
             <div>
                 <img className='w-75 rounded-full' src={profile_pic} alt="" />
                 <p className='text-(--title-color) font-bold text-2xl text-center pt-10'>Kwame Dawson</p>
-                <p className='text-(--text-color) font-medium text-lg text-center'>Full Stack Developer - MERN Stack</p>
+                <p className='text-(--text-color) font-medium text-lg text-center'>Full Stack Web Developer</p>
             </div>
-            <div className='flex gap-9 pt-23 transition-all'>
-                <a className='hover:scale-105 duration-150' href="https://www.linkedin.com/in/kwameofeidawson?utm_source=share_via&utm_content=profile&utm_medium=member_ios"><img className='w-9 h-9' src={linkedInIcon} alt="LinkedIn" /></a>
-                <a className='hover:scale-105 duration-150' href="https://github.com/Kod-19"><img className='w-9 h-9' src={githubIcon} alt="GitHub" /></a>
-                <a className='hover:scale-105 duration-150' href="https://snapchat.com/t/UFDTyOJG"><img className='w-9 h-9' src={snapchatIcon} alt="Snapchat" /></a>
-                <a className='hover:scale-105 duration-150' href="https://wa.me/0505734529"><img className='w-9 h-9' src={whatsappIcon} alt="WhatsApp" /></a>
+            <div className='flex items-center pt-23 gap-5 transition-all'>
+                <div className='hover:border-blue-300 border hover:translate-y-1 hover:text-(--primary-color) rounded-md bg-(--card-bg) items-center py-2 px-6 text-(--tertiary-color) font-bold duration-300 text-sm'>
+                    <p>3+ yrs</p>
+                </div>
+                <div className='hover:border-blue-300 border hover:translate-y-1 hover:text-(--primary-color) rounded-md bg-(--card-bg) items-center py-2 px-6 text-(--tertiary-color) font-bold duration-300 text-sm'>
+                    <p>7+ projects</p>
+                </div>
+                <div className='hover:border-blue-300 border hover:translate-y-1 hover:text-(--primary-color) rounded-md bg-(--card-bg) items-center py-2 px-6 text-(--tertiary-color) font-bold duration-300 text-sm'>
+                    <p>100% quality</p>
+                </div>
             </div>
+            
         </div>
     </div>
   )
