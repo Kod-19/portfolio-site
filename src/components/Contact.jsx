@@ -56,25 +56,25 @@ const Contact = () => {
                     <form action="" className=''>
                         <input
                             type="text"
-                            id='name' 
+                            id='first-name' 
                             className='bg-gray-900 w-full py-2 border-none outline-none px-4'
                             placeholder='First Name'
                         />
                         <input
                             type="text"
-                            id='name' 
+                            id='other-names' 
                             className='bg-gray-900 w-full py-2 border-none outline-none px-4 mt-10'
                             placeholder='Other Names'
                         />
                         <input
                             type="email"
-                            id='name' 
+                            id='email' 
                             className='bg-gray-900 w-full py-2 border-none outline-none px-4 mt-10'
                             placeholder='Your Email'
                         />
                         <textarea 
                             name="" 
-                            id='' 
+                            id='message' 
                             placeholder='Write Your Message'
                             className='w-full pt-2 pb-10 px-4 bg-gray-900 mt-10 outline-none border-none'
                         />
