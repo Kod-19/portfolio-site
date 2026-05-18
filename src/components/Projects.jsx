@@ -10,11 +10,11 @@ const Projects = () => {
         <Title title='My Projects' />
 
         <div className='pt-10'>
-            <p className='text-(--text-color) font-medium text-lg text-ellipsis w-2/3'>
+            <p className='text-(--text-color) font-medium text-lg text-ellipsis w-full md:w-2/3'>
                 Here are some of the projects I've worked on, showcasing my skills in full stack development and my ability to create responsive and user-friendly applications.
             </p>
         </div>
-        <div className='grid grid-cols-2 gap-10 pt-10'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-10 pt-10'>
              <ProjectCard
                 img={demo1} 
                 title='Recipe Planner' 

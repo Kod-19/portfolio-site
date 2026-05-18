@@ -3,7 +3,7 @@ import profile_pic from '../assets/profile_pic.jpg'
 
 const Hero = () => {
   return (
-    <div className='grid grid-cols-2 pt-45'>
+    <div className='grid grid-cols-1 lg:grid-cols-2 pt-45'>
         <div className='flex flex-col'>
             <p className='uppercase text-(--primary-color) text-medium'>
                 Designing digital experiences that feel <strong>simple</strong>, <strong>fast</strong>, and <strong>meaningful</strong>
@@ -25,7 +25,7 @@ const Hero = () => {
 
         <div className='flex flex-col items-center'>
             <div>
-                <img className='w-75 rounded-full' src={profile_pic} alt="" />
+                <img className='w-48 sm:w-56 lg:w-64 rounded-full' src={profile_pic} alt="" />
                 <p className='text-(--title-color) font-bold text-2xl text-center pt-10'>Kwame Dawson</p>
                 <p className='text-(--text-color) font-medium text-lg text-center'>Full Stack Web Developer</p>
             </div>
