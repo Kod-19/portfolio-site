@@ -48,7 +48,12 @@ const Contact = () => {
             <a className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://wa.me/0505734529'><img className='h-7 w-7' src={whatsappIcon} alt='WhatsApp' /></a>
           </div>
 
-          <p className='pt-9 font-semibold text-(--title-color)'>Call me: 050 573 4539</p>
+          <p className='pt-9 font-semibold text-(--title-color)'>
+            Call me:{' '}
+            <a className='inline-flex min-h-11 items-center text-(--primary-color) underline-offset-4 transition hover:underline focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--primary-color)' href='tel:+233505734539'>
+              050 573 4539
+            </a>
+          </p>
         </div>
 
         <div className='pt-10'>
