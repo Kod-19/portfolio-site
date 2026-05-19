@@ -20,7 +20,7 @@ const Contact = () => {
     access_key: accessKey,
     settings: {
       from_name: 'Kwame Dawson Portfolio',
-      subject: 'New Contact Message from your Website',
+      subject: 'Message From Customer',
     },
     onSuccess: (msg) => {
       setResult(msg)
