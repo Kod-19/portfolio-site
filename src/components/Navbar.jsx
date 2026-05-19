@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import logo from '../assets/logo.png'
 
 const Navbar = () => {
   const [open, setOpen] = useState(false)
@@ -14,7 +15,11 @@ const Navbar = () => {
     <header className='sticky top-0 z-50 border-b border-white/5 bg-(--dark-bg)/90 text-(--text-color) backdrop-blur-xl'>
       <div className='mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-12 xl:px-20'>
         <a href='#' onClick={() => setOpen(false)} className='group inline-flex items-center gap-2'>
-          <span className='h-2.5 w-2.5 rounded-full bg-(--accent-color) transition duration-300 group-hover:scale-125' />
+          <img
+            src={logo}
+            alt='Kwame Dawson logo'
+            className='h-9 w-9 rounded-full object-cover ring-1 ring-white/10 transition duration-300 group-hover:scale-105 group-hover:ring-(--accent-color)'
+          />
           <span className='text-2xl font-extrabold italic text-(--title-color)'>KD</span>
         </a>
 
