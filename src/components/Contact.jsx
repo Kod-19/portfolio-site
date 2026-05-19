@@ -45,10 +45,10 @@ const Contact = () => {
             <a className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://www.linkedin.com/in/kwameofeidawson?utm_source=share_via&utm_content=profile&utm_medium=member_ios'><img className='h-7 w-7' src={linkedInIcon} alt='LinkedIn' /></a>
             <a className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://github.com/Kod-19'><img className='h-7 w-7' src={githubIcon} alt='GitHub' /></a>
             <a className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://snapchat.com/t/UFDTyOJG'><img className='h-7 w-7' src={snapchatIcon} alt='Snapchat' /></a>
-            <a className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://wa.me/0505734529'><img className='h-7 w-7' src={whatsappIcon} alt='WhatsApp' /></a>
+            <a className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://wa.me/0595363184'><img className='h-7 w-7' src={whatsappIcon} alt='WhatsApp' /></a>
           </div>
 
-          <p className='pt-9 font-semibold text-(--title-color)'>Call me: 050 573 4539</p>
+          <p className='pt-9 font-semibold text-(--title-color)'>Call me: 059 536 3184</p>
         </div>
 
         <div className='pt-10'>
