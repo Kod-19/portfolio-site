@@ -51,7 +51,7 @@ const Contact = () => {
           <p className='pt-9 font-semibold text-(--title-color)'>
             Call me: 
             <a href="tel:+233595363184">
-              +233 59 536 3184
+               +233 59 536 3184
             </a>
           </p>
         </div>
