@@ -7,6 +7,8 @@ import linkedInIcon from '../assets/linkedIn_icon.png'
 import githubIcon from '../assets/github_icon.png'
 import snapchatIcon from '../assets/snapchat_icon.png'
 import whatsappIcon from '../assets/whatsapp_icon.png'
+import instagramIcon from '../assets/instagram_icon.png'
+import phoneIcon from '../assets/phone_icon.png'
 
 const Contact = () => {
   const { register, reset, handleSubmit } = useForm()
@@ -46,18 +48,15 @@ const Contact = () => {
             <a className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://github.com/Kod-19'><img className='h-7 w-7' src={githubIcon} alt='GitHub' /></a>
             <a className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://snapchat.com/t/UFDTyOJG'><img className='h-7 w-7' src={snapchatIcon} alt='Snapchat' /></a>
             <a className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://wa.me/0595363184'><img className='h-7 w-7' src={whatsappIcon} alt='WhatsApp' /></a>
+            <a className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://www.instagram.com/kwame.dawson?igsh=MWR1M2N5NzRmdjVpNw%3D%3D&utm_source=qr'><img className='h-7 w-7' src={instagramIcon} alt='Instagram' /></a>
+            
           </div>
 
-          <p className='pt-9 font-semibold text-(--title-color)'>
-<<<<<<< HEAD
-            Call me:{' '}
-            <a className='inline-flex min-h-11 items-center text-(--primary-color) underline-offset-4 transition hover:underline focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--primary-color)' href='tel:+233505734539'>
-              050 573 4539
-=======
-            Call me: 
-            <a href="tel:+233595363184">
-               +233 59 536 3184
->>>>>>> 4d13007a8d1e72166087840111a7342be90fdea4
+          <p className='flex items-center gap-2 pt-9 font-semibold text-(--title-color)'>
+            <img className='h-6 w-6 shrink-0' src={phoneIcon} alt='' aria-hidden='true' />
+            <span>Call me:{' '}</span>
+            <a className='inline-flex min-h-11 items-center text-(--primary-color) underline-offset-4 transition hover:underline focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--primary-color)' href='tel:+233595363184'>
+              +233 59 536 3184
             </a>
           </p>
         </div>
