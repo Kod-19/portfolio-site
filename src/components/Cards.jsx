@@ -1,11 +1,16 @@
-import React from 'react'
-
-const Cards = ({title, desc}) => {
+const Cards = ({ title, desc }) => {
   return (
-    <div className='py-5 px-4 rounded-md bg-(--card-bg) border-l-4 border-(--tertiary-color) hover:translate-y-1 hover:border-sky-200 transition-all duration-300'>
-        <p className='text-xl text-(--title-color) font-bold py-4 px-4 w-2/3'>{title}</p>
-        <p className='text-lg font-medium text-(--text-color) py-4 px-4'>{desc}</p>
-    </div>
+    <article className='interactive-card group h-full rounded-lg border-l-4 border-l-(--tertiary-color) p-5 sm:p-6'>
+      <div className='relative'>
+        <div className='mb-5 h-1.5 w-12 rounded-full bg-[linear-gradient(90deg,var(--primary-color),var(--accent-color))] transition-all duration-300 group-hover:w-20' />
+        <h4 className='text-lg font-bold leading-snug text-(--title-color) sm:text-xl'>
+          {title}
+        </h4>
+        <p className='pt-4 text-sm font-medium leading-7 text-(--text-color) sm:text-base'>
+          {desc}
+        </p>
+      </div>
+    </article>
   )
 }
 

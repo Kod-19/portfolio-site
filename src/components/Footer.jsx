@@ -1,10 +1,8 @@
-import React from 'react'
-
 const Footer = () => {
   return (
-    <div className='bg-(--card-bg) p-5 py-8 text-center text-gray-700'>
-      <p>© {new Date().getFullYear()} Kwame Dawson </p>
-    </div>
+    <footer className='border-t border-white/5 bg-(--surface-bg) px-5 py-8 text-center text-sm font-medium text-(--text-color)'>
+      <p>Copyright {new Date().getFullYear()} Kwame Dawson</p>
+    </footer>
   )
 }
 

@@ -1,11 +1,9 @@
-import React from 'react'
 import nodeIcon from '../assets/nodejs_icon.png';
 import reactIcon from '../assets/react_icon.png';
 import jsIcon from '../assets/javascript_icon.png';
 import expressIcon from '../assets/express_icon.png';
 import mongoIcon from '../assets/mongodb_icon.png';
 import tailwindIcon from '../assets/tailwindcss_icon.png';
-import githubIcon from '../assets/github_icon.png';
 import githubIcon1 from '../assets/github_icon1.png';
 import vercelIcon from '../assets/vercel_icon.png';
 import firebaseIcon from '../assets/firebase_icon.png';
@@ -80,18 +78,18 @@ const techStack = [
 
 const About = () => {
   return (
-    <div id='about'>
+    <section id='about'>
         <Title title='about me' />
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-14 pt-20'>
+        <div className='grid grid-cols-1 gap-12 pt-12 sm:pt-16 lg:grid-cols-2 lg:gap-14'>
             <div className='flex flex-col'>
-                <p className='text-3xl text-(--title-color) font-bold'>A focused creator building for the web</p>
-                <p className='font-medium text-(--text-color) pt-10 text-lg'>
+                <h2 className='max-w-xl text-3xl font-bold leading-tight text-(--title-color) sm:text-4xl'>A focused creator building for the web</h2>
+                <p className='pt-7 text-base font-medium leading-8 text-(--text-color) sm:text-lg'>
                     I'm a developer who enjoys learning by building. Instead of just watching tutorials, I prefer working on real projects that challenge me to think and improve. Over time, I've grown from understanding basic JavaScript to building full-stack applications that connect frontend interfaces with powerful backend systems.
                 </p>
-                <p className='font-medium text-(--text-color) pt-10 pb-20 text-lg'>
+                <p className='pt-6 text-base font-medium leading-8 text-(--text-color) sm:text-lg'>
                     I care about clean code, good design, and creating projects that solve real problems. Every project I build helps me grow stronger as a developer and move closer to building impactful digital products.
                 </p>
-                <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+                <div className='grid grid-cols-1 gap-4 pt-10 sm:grid-cols-2'>
                     <Cards 
                         title='Modern Frontend Experiences'
                         desc='Building responsive and modern user interfaces that feel smooth and easy to use.'
@@ -113,17 +111,17 @@ const About = () => {
 
             <div className='flex flex-col'>
                 <div className='max-w-xl'>
-                    <p className='text-3xl text-(--title-color) font-bold'>Tech Stack</p>
-                    <p className='text-(--text-color) font-medium text-lg leading-8 pt-6'>
+                    <h2 className='text-3xl font-bold text-(--title-color) sm:text-4xl'>Tech Stack</h2>
+                    <p className='pt-6 text-base font-medium leading-8 text-(--text-color) sm:text-lg'>
                         These are the tools I use to turn ideas into polished web experiences, from responsive interfaces to backend logic and database management.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 pt-30 pb-20">
+                <div className="grid grid-cols-1 gap-4 pt-10 pb-16 sm:grid-cols-2 lg:pt-16 xl:grid-cols-3">
                     {techStack.map((tech) => (
                         <div
                             key={tech.name}
-                            className={`group rounded-md border border-(--card-border) bg-linear-to-br ${tech.accent} bg-(--card-bg) p-5 transition duration-300 hover:-translate-y-1 hover:border-(--tertiary-color) hover:shadow-[0_18px_40px_rgba(31,140,255,0.12)]`}
+                            className={`interactive-card group rounded-lg bg-linear-to-br ${tech.accent} p-5`}
                         >
                             <div className='flex h-14 w-14 items-center justify-center rounded-md border border-white/20 bg-white/95 shadow-inner transition duration-300 group-hover:border-(--tertiary-color)'>
                                 <img className={`${tech.iconClass} object-contain drop-shadow-sm`} src={tech.icon} alt={tech.name} />
@@ -135,7 +133,7 @@ const About = () => {
                 </div>
             </div>
         </div>
-    </div>
+    </section>
   )
 }
 

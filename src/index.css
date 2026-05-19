@@ -1,12 +1,137 @@
 @import 'tailwindcss';
 
 :root {
-  --primary-color: #52B7FF;
-  --secondary-color: #0B1728;
-  --tertiary-color: #1F8CFF;
-  --dark-bg: #030814;
-  --text-color: #93A8C6;
-  --title-color: #EEF7FF;
-  --card-border: #173257;
-  --card-bg: #07111F;
+  --primary-color: #66e3ff;
+  --secondary-color: #0d1b2e;
+  --tertiary-color: #2f8cff;
+  --accent-color: #ffd166;
+  --dark-bg: #050914;
+  --surface-bg: #081423;
+  --card-bg: #0b1829;
+  --card-border: #1c3657;
+  --text-color: #a9b8cf;
+  --title-color: #f4fbff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  background: var(--dark-bg);
+}
+
+@keyframes float-soft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fade-up 0.7s ease both;
+  }
+
+  .animate-float-soft {
+    animation: float-soft 4.5s ease-in-out infinite;
+  }
+
+  .interactive-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--card-border) 80%, transparent);
+    background:
+      linear-gradient(145deg, rgba(102, 227, 255, 0.08), transparent 42%),
+      var(--card-bg);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+    transition:
+      transform 300ms ease,
+      border-color 300ms ease,
+      box-shadow 300ms ease,
+      background 300ms ease;
+  }
+
+  .interactive-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, 0.12), transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 600ms ease;
+  }
+
+  .interactive-card:hover {
+    transform: translateY(-8px);
+    border-color: color-mix(in srgb, var(--primary-color) 75%, white 10%);
+    box-shadow: 0 24px 60px rgba(47, 140, 255, 0.18);
+  }
+
+  .interactive-card:hover::before {
+    transform: translateX(120%);
+  }
+
+  .button-pop {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    transition:
+      transform 220ms ease,
+      box-shadow 220ms ease,
+      border-color 220ms ease,
+      background 220ms ease;
+  }
+
+  .button-pop::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(105deg, transparent 25%, rgba(255, 255, 255, 0.22), transparent 75%);
+    transform: translateX(-120%);
+  }
+
+  .button-pop:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 16px 34px rgba(47, 140, 255, 0.22);
+  }
+
+  .button-pop:hover::after {
+    animation: shimmer 700ms ease;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
 }
