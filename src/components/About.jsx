@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import nodeIcon from '../assets/nodejs_icon.png';
 import reactIcon from '../assets/react_icon.png';
 import jsIcon from '../assets/javascript_icon.png';
@@ -77,6 +78,15 @@ const techStack = [
 ];
 
 const About = () => {
+  const techScrollRef = useRef(null);
+
+  const scrollTechStack = (direction) => {
+    techScrollRef.current?.scrollBy({
+        left: direction * 180,
+        behavior: 'smooth',
+    });
+  };
+
   return (
     <section id='about'>
         <Title title='about me' />
@@ -117,7 +127,29 @@ const About = () => {
                     </p>
                 </div>
 
-                <div className="flex gap-3 overflow-x-auto overscroll-x-contain pt-8 pb-16 [-ms-overflow-style:none] [scrollbar-width:none] sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:pt-10 lg:pt-16 xl:grid-cols-3 [&::-webkit-scrollbar]:hidden">
+                <div className='flex items-center justify-between pt-6 sm:hidden'>
+                    <p className='text-xs font-semibold uppercase tracking-[0.14em] text-(--primary-color)'>Swipe tools</p>
+                    <div className='flex gap-2'>
+                        <button
+                            type='button'
+                            onClick={() => scrollTechStack(-1)}
+                            className='button-pop flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-lg font-bold text-(--title-color)'
+                            aria-label='Scroll tech stack left'
+                        >
+                            &larr;
+                        </button>
+                        <button
+                            type='button'
+                            onClick={() => scrollTechStack(1)}
+                            className='button-pop flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-lg font-bold text-(--title-color)'
+                            aria-label='Scroll tech stack right'
+                        >
+                            &rarr;
+                        </button>
+                    </div>
+                </div>
+
+                <div ref={techScrollRef} className="flex scroll-smooth gap-3 overflow-x-auto overscroll-x-contain pt-4 pb-16 [-ms-overflow-style:none] [scrollbar-none] sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:pt-10 lg:pt-16 xl:grid-cols-3 [&::-webkit-scrollbar]:hidden">
                     {techStack.map((tech) => (
                         <div
                             key={tech.name}
