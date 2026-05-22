@@ -53,8 +53,8 @@ const ProjectBriefPage = () => {
   const { submit: onSubmit } = useWeb3Forms({
     access_key: accessKey,
     settings: {
-      from_name: 'Kwame Dawson Portfolio',
-      subject: 'New Website Project Brief',
+      from_name: 'KD Studios',
+      subject: 'Project Brief',
     },
     onSuccess: (msg) => {
       setResult(msg)
@@ -106,7 +106,7 @@ const ProjectBriefPage = () => {
               </div>
             </aside>
 
-            <form onSubmit={handleSubmit(onSubmit)} className='interactive-card rounded-lg p-5 sm:p-6 lg:p-8'>
+            <form onSubmit={handleSubmit(onSubmit)} className='interactive-card rounded-lg p-5 sm:p-6 lg:p-8' autoComplete='on'>
               <input type='hidden' value='Website Project Brief' {...register('form_type')} />
 
               <div>
@@ -117,19 +117,19 @@ const ProjectBriefPage = () => {
               <div className='grid grid-cols-1 gap-5 pt-6 md:grid-cols-2'>
                 <div>
                   <label className={labelClass} htmlFor='name'>Full name</label>
-                  <input id='name' type='text' className={fieldClass} placeholder='Your name' {...register('name', { required: true })} />
+                  <input id='name' type='text' className={fieldClass} placeholder='Your name' autoComplete='name' {...register('name', { required: true })} />
                 </div>
                 <div>
                   <label className={labelClass} htmlFor='email'>Email address</label>
-                  <input id='email' type='email' className={fieldClass} placeholder='you@example.com' {...register('email', { required: true })} />
+                  <input id='email' type='email' className={fieldClass} placeholder='you@example.com' autoComplete='email' {...register('email', { required: true })} />
                 </div>
                 <div>
                   <label className={labelClass} htmlFor='phone'>Phone or WhatsApp</label>
-                  <input id='phone' type='tel' className={fieldClass} placeholder='+233 ...' {...register('phone')} />
+                  <input id='phone' type='tel' className={fieldClass} placeholder='+233 ...' autoComplete='tel' inputMode='tel' {...register('phone')} />
                 </div>
                 <div>
                   <label className={labelClass} htmlFor='business-name'>Business or brand name</label>
-                  <input id='business-name' type='text' className={fieldClass} placeholder='Name of the business, brand, or idea' {...register('business_name')} />
+                  <input id='business-name' type='text' className={fieldClass} placeholder='Name of the business, brand, or idea' autoComplete='organization' {...register('business_name')} />
                 </div>
               </div>
 
@@ -172,7 +172,7 @@ const ProjectBriefPage = () => {
                 </div>
                 <div>
                   <label className={labelClass} htmlFor='current-website'>Current website, if any</label>
-                  <input id='current-website' type='url' className={fieldClass} placeholder='https://...' {...register('current_website')} />
+                  <input id='current-website' type='url' className={fieldClass} placeholder='https://...' autoComplete='url' inputMode='url' {...register('current_website')} />
                 </div>
               </div>
 
@@ -213,19 +213,19 @@ const ProjectBriefPage = () => {
               <div className='space-y-5 pt-6'>
                 <div>
                   <label className={labelClass} htmlFor='main-goal'>What is the main goal of the site?</label>
-                  <textarea id='main-goal' className={`${fieldClass} min-h-28 resize-y`} placeholder='Example: I want visitors to see my services and book a consultation.' {...register('main_goal', { required: true })} />
+                  <textarea id='main-goal' className={`${fieldClass} min-h-28 resize-y`} placeholder='Example: I want visitors to see my services and book a consultation.' autoComplete='on' {...register('main_goal', { required: true })} />
                 </div>
                 <div>
                   <label className={labelClass} htmlFor='audience'>Who is the website for?</label>
-                  <textarea id='audience' className={`${fieldClass} min-h-24 resize-y`} placeholder='Example: Small business owners, students, event clients, restaurant customers...' {...register('target_audience')} />
+                  <textarea id='audience' className={`${fieldClass} min-h-24 resize-y`} placeholder='Example: Small business owners, students, event clients, restaurant customers...' autoComplete='on' {...register('target_audience')} />
                 </div>
                 <div>
                   <label className={labelClass} htmlFor='style'>How should the site look and feel?</label>
-                  <textarea id='style' className={`${fieldClass} min-h-24 resize-y`} placeholder='Example: Clean and modern, bold and colorful, luxury, playful, simple and professional...' {...register('design_style')} />
+                  <textarea id='style' className={`${fieldClass} min-h-24 resize-y`} placeholder='Example: Clean and modern, bold and colorful, luxury, playful, simple and professional...' autoComplete='on' {...register('design_style')} />
                 </div>
                 <div>
                   <label className={labelClass} htmlFor='references'>Websites or brands you like</label>
-                  <textarea id='references' className={`${fieldClass} min-h-24 resize-y`} placeholder='Paste links or describe what you like about them.' {...register('references')} />
+                  <textarea id='references' className={`${fieldClass} min-h-24 resize-y`} placeholder='Paste links or describe what you like about them.' autoComplete='on' {...register('references')} />
                 </div>
                 <div>
                   <label className={labelClass} htmlFor='content-ready'>Do you already have content ready?</label>
@@ -239,7 +239,7 @@ const ProjectBriefPage = () => {
                 </div>
                 <div>
                   <label className={labelClass} htmlFor='extra-notes'>Anything else I should know?</label>
-                  <textarea id='extra-notes' className={`${fieldClass} min-h-32 resize-y`} placeholder='Add extra details, special requirements, questions, or things you are unsure about.' {...register('extra_notes')} />
+                  <textarea id='extra-notes' className={`${fieldClass} min-h-32 resize-y`} placeholder='Add extra details, special requirements, questions, or things you are unsure about.' autoComplete='on' {...register('extra_notes')} />
                 </div>
               </div>
 

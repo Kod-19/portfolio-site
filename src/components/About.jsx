@@ -182,7 +182,7 @@ const About = () => {
                     </div>
                 </div>
 
-                <div ref={techScrollRef} onScroll={updateTechScrollControls} className="flex snap-x snap-mandatory scroll-smooth gap-3 overflow-x-auto overscroll-x-contain pt-4 pb-16 [-ms-overflow-style:none] [scrollbar-width:none] sm:grid sm:snap-none sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:pt-10 lg:pt-16 xl:grid-cols-3 [&::-webkit-scrollbar]:hidden">
+                <div ref={techScrollRef} onScroll={updateTechScrollControls} className="flex snap-x snap-mandatory scroll-smooth gap-3 overflow-x-auto overscroll-x-contain pt-4 pb-16 [-ms-overflow-style:none] scrollbar-none sm:grid sm:snap-none sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:pt-10 lg:pt-16 xl:grid-cols-3 [&::-webkit-scrollbar]:hidden">
                     {techStack.map((tech) => (
                         <div
                             key={tech.name}

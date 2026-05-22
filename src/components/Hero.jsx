@@ -1,5 +1,23 @@
 import profile_pic from '../assets/profile_pic.jpg'
 
+const profileActions = [
+  {
+    title: 'Website Builds',
+    desc: 'Clean business sites, portfolios, and landing pages.',
+    href: '/project-brief',
+  },
+  {
+    title: 'Web Apps',
+    desc: 'Responsive tools with frontend and backend logic.',
+    href: '#projects',
+  },
+  {
+    title: 'Launch Support',
+    desc: 'Deployment, fixes, updates, and ongoing care.',
+    href: '#contact',
+  },
+]
+
 const Hero = () => {
   return (
     <section className='grid min-h-[calc(100vh-76px)] grid-cols-1 items-center gap-9 pt-8 sm:gap-12 sm:pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pt-24'>
@@ -34,26 +52,33 @@ const Hero = () => {
 
       <div className='order-1 flex flex-col items-center lg:order-2 animate-fade-up'>
         <div className='animate-float-soft rounded-full border border-white/10 bg-(--surface-bg) p-2 shadow-2xl shadow-sky-500/10 sm:p-3'>
-          <img className='aspect-square w-40 rounded-full object-cover sm:w-56 lg:w-72' src={profile_pic} alt='Kwame Dawson' />
+          <img className='aspect-square w-40 rounded-full object-cover sm:w-56 lg:w-72' src={profile_pic} alt='KD Studios founder Kwame Dawson' />
         </div>
         <div className='pt-5 text-center sm:pt-7'>
           <p className='text-xl font-bold text-(--title-color) sm:text-2xl'>
-            Kwame Dawson
+            KD Studios
           </p>
           <p className='text-base font-medium text-(--text-color) sm:text-lg'>
-            Full Stack Web Developer
+            Led by Kwame Dawson
+          </p>
+          <p className='text-base font-medium text-(--text-color) sm:text-lg'>
+            Full Stack Web Development
           </p>
         </div>
-        <div className='grid w-full max-w-md grid-cols-1 gap-3 pt-6 text-center sm:grid-cols-3 sm:pt-12'>
-          <div className='interactive-card rounded-lg px-5 py-3 text-sm font-bold text-(--primary-color)'>
-            <p>3+ yrs</p>
-          </div>
-          <div className='interactive-card rounded-lg px-5 py-3 text-sm font-bold text-(--primary-color)'>
-            <p>7+ projects</p>
-          </div>
-          <div className='interactive-card rounded-lg px-5 py-3 text-sm font-bold text-(--primary-color)'>
-            <p>100% quality</p>
-          </div>
+        <div className='grid w-full max-w-xl grid-cols-1 gap-3 pt-6 text-left sm:grid-cols-3 sm:pt-10'>
+          {profileActions.map((action) => (
+            <a
+              key={action.title}
+              href={action.href}
+              className='interactive-card group rounded-lg p-4 transition'
+            >
+              <p className='text-sm font-bold text-(--title-color)'>{action.title}</p>
+              <p className='pt-2 text-xs font-medium leading-5 text-(--text-color)'>{action.desc}</p>
+              <span className='mt-3 inline-flex text-xs font-bold uppercase tracking-[0.14em] text-(--primary-color) transition group-hover:text-(--accent-color)'>
+                Explore
+              </span>
+            </a>
+          ))}
         </div>
       </div>
     </section>

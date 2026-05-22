@@ -19,7 +19,7 @@ const Contact = () => {
   const { submit: onSubmit } = useWeb3Forms({
     access_key: accessKey,
     settings: {
-      from_name: 'Kwame Dawson Portfolio',
+      from_name: 'KD Studios',
       subject: 'Message From Customer',
     },
     onSuccess: (msg) => {
@@ -38,7 +38,7 @@ const Contact = () => {
         <div className='pt-10'>
           <h2 className='text-3xl font-bold text-(--title-color) sm:text-4xl'>Let's Connect</h2>
           <p className='pt-7 text-base font-medium leading-8 text-(--text-color) sm:text-lg'>
-            Feel free to reach out for collaborations, project ideas, or just to say hello. I'm always open to discussing new opportunities.
+            Feel free to reach out to KD Studios for collaborations, project ideas, or just to say hello. I'm always open to discussing new opportunities.
           </p>
           <div className='interactive-card mt-8 rounded-lg p-5'>
             <h3 className='text-xl font-bold text-(--title-color)'>Already have a website idea?</h3>
@@ -86,12 +86,13 @@ const Contact = () => {
           <h2 className='text-3xl font-bold text-(--title-color) sm:text-4xl'>Send a Message</h2>
 
           <div className='interactive-card mt-8 w-full rounded-lg p-5 sm:p-6'>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} autoComplete='on'>
               <input
                 type='text'
                 id='first-name'
                 className='w-full rounded-lg border border-(--card-border) bg-(--dark-bg) px-4 py-3 text-(--title-color) outline-none transition focus:border-(--primary-color) focus:ring-2 focus:ring-sky-400/20'
                 placeholder='First Name'
+                autoComplete='given-name'
                 {...register('first-name', { required: true })}
               />
               <input
@@ -99,6 +100,7 @@ const Contact = () => {
                 id='other-names'
                 className='mt-5 w-full rounded-lg border border-(--card-border) bg-(--dark-bg) px-4 py-3 text-(--title-color) outline-none transition focus:border-(--primary-color) focus:ring-2 focus:ring-sky-400/20'
                 placeholder='Other Names'
+                autoComplete='additional-name'
                 {...register('other-names')}
               />
               <input
@@ -106,12 +108,14 @@ const Contact = () => {
                 id='email'
                 className='mt-5 w-full rounded-lg border border-(--card-border) bg-(--dark-bg) px-4 py-3 text-(--title-color) outline-none transition focus:border-(--primary-color) focus:ring-2 focus:ring-sky-400/20'
                 placeholder='Your Email'
+                autoComplete='email'
                 {...register('email', { required: true })}
               />
               <textarea
                 id='message'
                 placeholder='Write Your Message'
                 className='mt-5 min-h-36 w-full resize-y rounded-lg border border-(--card-border) bg-(--dark-bg) px-4 py-3 text-(--title-color) outline-none transition focus:border-(--primary-color) focus:ring-2 focus:ring-sky-400/20'
+                autoComplete='on'
                 {...register('message', { required: true })}
               />
               <button type='submit' className='button-pop mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-(--tertiary-color) px-5 py-3 font-bold text-(--title-color) sm:w-auto'>
