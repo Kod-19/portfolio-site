@@ -40,6 +40,18 @@ const Contact = () => {
           <p className='pt-7 text-base font-medium leading-8 text-(--text-color) sm:text-lg'>
             Feel free to reach out for collaborations, project ideas, or just to say hello. I'm always open to discussing new opportunities.
           </p>
+          <div className='interactive-card mt-8 rounded-lg p-5'>
+            <h3 className='text-xl font-bold text-(--title-color)'>Already have a website idea?</h3>
+            <p className='pt-3 text-sm font-medium leading-7 text-(--text-color) sm:text-base'>
+              If you know you need a portfolio, booking site, landing page, business website, or custom web app, fill out a short project brief so I can understand your goals, features, timeline, and style before we talk.
+            </p>
+            <a
+              href='/project-brief'
+              className='button-pop mt-5 inline-flex min-h-12 items-center justify-center rounded-lg bg-(--tertiary-color) px-5 py-3 text-sm font-bold text-(--title-color) sm:text-base'
+            >
+              Start a Website Project Brief
+            </a>
+          </div>
           <p className='pt-9 text-xs font-bold uppercase tracking-[0.18em] text-(--primary-color) sm:text-sm'>
             Active on various social media platforms
           </p>

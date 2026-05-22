@@ -1,7 +1,6 @@
 import Title from './Title'
 import ProjectCard from './ProjectCard'
-import demo1 from '../assets/demo1.png'
-import demo2 from '../assets/demo2.png'
+import { featuredProjects } from '../data/projects'
 
 const Projects = () => {
   return (
@@ -15,18 +14,18 @@ const Projects = () => {
       </div>
 
       <div className='grid grid-cols-1 gap-6 pt-10 md:grid-cols-2 lg:gap-10'>
-        <ProjectCard
-          img={demo1}
-          title='Recipe Planner'
-          desc='A simple recipe management app to organize and plan your meals.'
-          demoLink='https://peaceful-success-production-37b3.up.railway.app/'
-        />
-        <ProjectCard
-          img={demo2}
-          title='KanFlow'
-          desc='A productivity app to manage and track your daily tasks.'
-          demoLink='https://kan-flow-ivory.vercel.app/'
-        />
+        {featuredProjects.map((project) => (
+          <ProjectCard key={project.title} {...project} />
+        ))}
+      </div>
+
+      <div className='pt-8'>
+        <a
+          href='/projects'
+          className='button-pop inline-flex min-h-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg) px-5 py-3 text-sm font-bold text-(--title-color) sm:text-base'
+        >
+          View More Projects
+        </a>
       </div>
     </section>
   )

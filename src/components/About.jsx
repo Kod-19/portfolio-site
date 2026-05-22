@@ -15,63 +15,63 @@ const techStack = [
         name: 'Node.js',
         desc: 'Backend runtime',
         icon: nodeIcon,
-        iconClass: 'w-10 h-10',
+        iconClass: 'h-7 w-7 sm:h-10 sm:w-10',
         accent: 'from-green-400/20 to-green-500/5',
     },
     {
         name: 'React',
         desc: 'Frontend library',
         icon: reactIcon,
-        iconClass: 'w-9 h-9',
+        iconClass: 'h-7 w-7 sm:h-9 sm:w-9',
         accent: 'from-cyan-400/20 to-blue-500/5',
     },
     {
         name: 'JavaScript',
         desc: 'Core language',
         icon: jsIcon,
-        iconClass: 'w-9 h-9',
+        iconClass: 'h-7 w-7 sm:h-9 sm:w-9',
         accent: 'from-yellow-300/20 to-yellow-500/5',
     },
     {
         name: 'Express',
         desc: 'API framework',
         icon: expressIcon,
-        iconClass: 'w-8 h-8',
+        iconClass: 'h-6 w-6 sm:h-8 sm:w-8',
         accent: 'from-slate-300/15 to-slate-500/5',
     },
     {
         name: 'MongoDB',
         desc: 'Database',
         icon: mongoIcon,
-        iconClass: 'w-10 h-10',
+        iconClass: 'h-7 w-7 sm:h-10 sm:w-10',
         accent: 'from-emerald-400/20 to-emerald-500/5',
     },
     {
         name: 'Tailwind CSS',
         desc: 'Styling system',
         icon: tailwindIcon,
-        iconClass: 'w-10 h-10',
+        iconClass: 'h-7 w-7 sm:h-10 sm:w-10',
         accent: 'from-sky-400/20 to-cyan-500/5',
     },
     {
         name: 'GitHub',
         desc: 'Version control',
         icon: githubIcon1,
-        iconClass: 'w-10 h-10',
+        iconClass: 'h-7 w-7 sm:h-10 sm:w-10',
         accent: 'from-zinc-300/20 to-zinc-500/5',
     },
     {
         name: 'Vercel',
         desc: 'Deployment platform',
         icon: vercelIcon,
-        iconClass: 'w-9 h-9',
+        iconClass: 'h-7 w-7 sm:h-9 sm:w-9',
         accent: 'from-gray-300/20 to-gray-500/5',
     },
     {
         name: 'Firebase',
         desc: 'Backend services',
         icon: firebaseIcon,
-        iconClass: 'w-9 h-9',
+        iconClass: 'h-7 w-7 sm:h-9 sm:w-9',
         accent: 'from-orange-300/20 to-orange-500/5',
     },
 ];
@@ -121,13 +121,13 @@ const About = () => {
                     {techStack.map((tech) => (
                         <div
                             key={tech.name}
-                            className={`interactive-card group rounded-lg bg-linear-to-br ${tech.accent} p-5`}
+                            className={`interactive-card group rounded-lg bg-linear-to-br ${tech.accent} p-4 sm:p-5`}
                         >
-                            <div className='flex h-14 w-14 items-center justify-center rounded-md border border-white/20 bg-white/95 shadow-inner transition duration-300 group-hover:border-(--tertiary-color)'>
+                            <div className='flex h-11 w-11 items-center justify-center rounded-md border border-white/20 bg-white/95 shadow-inner transition duration-300 group-hover:border-(--tertiary-color) sm:h-14 sm:w-14'>
                                 <img className={`${tech.iconClass} object-contain drop-shadow-sm`} src={tech.icon} alt={tech.name} />
                             </div>
-                            <p className='pt-5 text-lg font-bold text-(--title-color)'>{tech.name}</p>
-                            <p className='pt-2 text-sm font-medium uppercase tracking-[0.14em] text-(--primary-color)'>{tech.desc}</p>
+                            <p className='pt-4 text-base font-bold text-(--title-color) sm:pt-5 sm:text-lg'>{tech.name}</p>
+                            <p className='pt-2 text-xs font-medium uppercase tracking-[0.14em] text-(--primary-color) sm:text-sm'>{tech.desc}</p>
                         </div>
                     ))}
                 </div>

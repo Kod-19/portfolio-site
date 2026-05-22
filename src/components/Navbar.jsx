@@ -5,16 +5,18 @@ const Navbar = () => {
   const [open, setOpen] = useState(false)
 
   const navItems = [
-    { label: 'Home', href: '#' },
-    { label: 'About', href: '#about' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', href: '/' },
+    { label: 'About', href: '/#about' },
+    { label: 'Projects', href: '/#projects' },
+    { label: 'More Projects', href: '/projects' },
+    { label: 'Project Brief', href: '/project-brief' },
+    { label: 'Contact', href: '/#contact' },
   ]
 
   return (
     <header className='sticky top-0 z-50 border-b border-white/5 bg-(--dark-bg)/90 text-(--text-color) backdrop-blur-xl'>
       <div className='mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-12 xl:px-20'>
-        <a href='#' onClick={() => setOpen(false)} className='group'>
+        <a href='/' onClick={() => setOpen(false)} className='group'>
           <img
             src={logo}
             alt='Kwame Dawson logo'
@@ -22,7 +24,7 @@ const Navbar = () => {
           />
         </a>
 
-        <ul className='hidden gap-8 text-sm font-semibold md:flex lg:gap-10'>
+        <ul className='hidden gap-5 text-sm font-semibold md:flex lg:gap-7'>
           {navItems.map((item) => (
             <li key={item.href}>
               <a href={item.href} className='relative py-2 transition duration-300 hover:text-(--title-color) after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-(--primary-color) after:transition-all after:duration-300 hover:after:w-full'>
