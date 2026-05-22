@@ -117,17 +117,17 @@ const About = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-4 pt-10 pb-16 sm:grid-cols-2 lg:pt-16 xl:grid-cols-3">
+                <div className="flex gap-3 overflow-x-auto overscroll-x-contain pt-8 pb-16 [-ms-overflow-style:none] [scrollbar-width:none] sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:pt-10 lg:pt-16 xl:grid-cols-3 [&::-webkit-scrollbar]:hidden">
                     {techStack.map((tech) => (
                         <div
                             key={tech.name}
-                            className={`interactive-card group rounded-lg bg-linear-to-br ${tech.accent} p-4 sm:p-5`}
+                            className={`interactive-card group flex min-w-20 shrink-0 flex-col items-center rounded-lg bg-linear-to-br ${tech.accent} p-3 text-center sm:min-w-0 sm:items-start sm:p-5 sm:text-left`}
                         >
-                            <div className='flex h-11 w-11 items-center justify-center rounded-md border border-white/20 bg-white/95 shadow-inner transition duration-300 group-hover:border-(--tertiary-color) sm:h-14 sm:w-14'>
-                                <img className={`${tech.iconClass} object-contain drop-shadow-sm`} src={tech.icon} alt={tech.name} />
+                            <div className='flex h-10 w-10 items-center justify-center rounded-md border border-white/20 bg-white/95 shadow-inner transition duration-300 group-hover:border-(--tertiary-color) sm:h-14 sm:w-14'>
+                                <img className={`${tech.iconClass} max-sm:h-6 max-sm:w-6 object-contain drop-shadow-sm`} src={tech.icon} alt={tech.name} />
                             </div>
-                            <p className='pt-4 text-base font-bold text-(--title-color) sm:pt-5 sm:text-lg'>{tech.name}</p>
-                            <p className='pt-2 text-xs font-medium uppercase tracking-[0.14em] text-(--primary-color) sm:text-sm'>{tech.desc}</p>
+                            <p className='pt-2 text-xs font-bold leading-tight text-(--title-color) sm:pt-5 sm:text-lg'>{tech.name}</p>
+                            <p className='hidden pt-2 text-xs font-medium uppercase tracking-[0.14em] text-(--primary-color) sm:block sm:text-sm'>{tech.desc}</p>
                         </div>
                     ))}
                 </div>
