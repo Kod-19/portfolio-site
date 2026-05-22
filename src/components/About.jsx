@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import nodeIcon from '../assets/nodejs_icon.png';
 import reactIcon from '../assets/react_icon.png';
 import jsIcon from '../assets/javascript_icon.png';
@@ -79,10 +79,41 @@ const techStack = [
 
 const About = () => {
   const techScrollRef = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const updateTechScrollControls = useCallback(() => {
+    const scrollArea = techScrollRef.current;
+
+    if (!scrollArea) {
+        return;
+    }
+
+    const maxScrollLeft = scrollArea.scrollWidth - scrollArea.clientWidth;
+
+    setCanScrollLeft(scrollArea.scrollLeft > 1);
+    setCanScrollRight(scrollArea.scrollLeft < maxScrollLeft - 1);
+  }, []);
+
+  useEffect(() => {
+    updateTechScrollControls();
+
+    window.addEventListener('resize', updateTechScrollControls);
+
+    return () => {
+        window.removeEventListener('resize', updateTechScrollControls);
+    };
+  }, [updateTechScrollControls]);
 
   const scrollTechStack = (direction) => {
-    techScrollRef.current?.scrollBy({
-        left: direction * 180,
+    const scrollArea = techScrollRef.current;
+
+    if (!scrollArea) {
+        return;
+    }
+
+    scrollArea.scrollBy({
+        left: direction * scrollArea.clientWidth * 0.75,
         behavior: 'smooth',
     });
   };
@@ -133,7 +164,8 @@ const About = () => {
                         <button
                             type='button'
                             onClick={() => scrollTechStack(-1)}
-                            className='button-pop flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-lg font-bold text-(--title-color)'
+                            disabled={!canScrollLeft}
+                            className='button-pop flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-lg font-bold text-(--title-color) disabled:cursor-not-allowed disabled:opacity-35'
                             aria-label='Scroll tech stack left'
                         >
                             &larr;
@@ -141,7 +173,8 @@ const About = () => {
                         <button
                             type='button'
                             onClick={() => scrollTechStack(1)}
-                            className='button-pop flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-lg font-bold text-(--title-color)'
+                            disabled={!canScrollRight}
+                            className='button-pop flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-lg font-bold text-(--title-color) disabled:cursor-not-allowed disabled:opacity-35'
                             aria-label='Scroll tech stack right'
                         >
                             &rarr;
@@ -149,11 +182,11 @@ const About = () => {
                     </div>
                 </div>
 
-                <div ref={techScrollRef} className="flex scroll-smooth gap-3 overflow-x-auto overscroll-x-contain pt-4 pb-16 [-ms-overflow-style:none] [scrollbar-none] sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:pt-10 lg:pt-16 xl:grid-cols-3 [&::-webkit-scrollbar]:hidden">
+                <div ref={techScrollRef} onScroll={updateTechScrollControls} className="flex snap-x snap-mandatory scroll-smooth gap-3 overflow-x-auto overscroll-x-contain pt-4 pb-16 [-ms-overflow-style:none] [scrollbar-width:none] sm:grid sm:snap-none sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:pt-10 lg:pt-16 xl:grid-cols-3 [&::-webkit-scrollbar]:hidden">
                     {techStack.map((tech) => (
                         <div
                             key={tech.name}
-                            className={`interactive-card group flex min-w-20 shrink-0 flex-col items-center rounded-lg bg-linear-to-br ${tech.accent} p-3 text-center sm:min-w-0 sm:items-start sm:p-5 sm:text-left`}
+                            className={`interactive-card group flex min-w-20 shrink-0 snap-start flex-col items-center rounded-lg bg-linear-to-br ${tech.accent} p-3 text-center sm:min-w-0 sm:items-start sm:p-5 sm:text-left`}
                         >
                             <div className='flex h-10 w-10 items-center justify-center rounded-md border border-white/20 bg-white/95 shadow-inner transition duration-300 group-hover:border-(--tertiary-color) sm:h-14 sm:w-14'>
                                 <img className={`${tech.iconClass} max-sm:h-6 max-sm:w-6 object-contain drop-shadow-sm`} src={tech.icon} alt={tech.name} />
