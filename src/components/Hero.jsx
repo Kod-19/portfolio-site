@@ -42,6 +42,12 @@ const Hero = () => {
             View Projects
           </a>
           <a
+            href='/payments'
+            className='button-pop inline-flex min-h-12 items-center justify-center rounded-lg bg-green-600 px-5 py-3 text-sm hover:bg-green-700 sm:text-base'
+          >
+            Make a Payment
+          </a>
+          <a
             href='#contact'
             className='button-pop inline-flex min-h-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg) px-5 py-3 text-sm text-(--title-color) sm:text-base'
           >

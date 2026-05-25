@@ -10,6 +10,7 @@ const Navbar = () => {
     { label: 'Projects', href: '/#projects' },
     { label: 'More Projects', href: '/projects' },
     { label: 'Project Brief', href: '/project-brief' },
+    { label: 'Payments', href: '/payments' },
     { label: 'Contact', href: '/#contact' },
   ]
 
