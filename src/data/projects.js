@@ -10,8 +10,8 @@ export const featuredProjects = [
     demoLink: 'https://beckery-s.vercel.app/',
     tags: ['React', 'Tailwind CSS', 'Vercel', 'Client'],
     status: 'Live demo',
-    caseStudy: 'Built a fast, mobile-first storefront for a local bakery with clear product pages, quick order CTAs, and optimized images for performance.',
-    details: ['Mobile-first layout', 'Optimized images and lazy loading', 'Easy product listing and contact flow'],
+    caseStudy: 'Challenge: the client needed a simple online storefront that loaded quickly on mobile and showcased daily products. Approach: I delivered a mobile-first responsive build with optimized image assets, clear product pages, and streamlined order CTAs. Result: faster page loads and a straightforward purchase flow that reduced friction for mobile customers.',
+    details: ['Mobile-first layout', 'Optimized images and lazy loading', 'Simplified product presentation and CTAs'],
   },
   {
     title: 'KanFlow',
@@ -20,7 +20,7 @@ export const featuredProjects = [
     demoLink: 'https://kan-flow-ivory.vercel.app/',
     tags: ['React', 'Tailwind CSS', 'Vercel', 'Personal'],
     status: 'Live demo',
-    caseStudy: 'Created a lightweight task manager with simple state syncing, keyboard-driven interactions, and responsive layout for desktop and mobile.',
+    caseStudy: 'Challenge: design a productivity tool that encourages quick task entry and low cognitive load. Approach: implemented a lightweight state model with keyboard shortcuts, persistent local storage, and a focused dashboard layout. Result: an intuitive, responsive task manager that supports rapid entry and short, repeatable workflows across devices.',
     details: ['Keyboard shortcuts for faster entry', 'Persistent local storage', 'Responsive dashboard layout'],
   },
 ]

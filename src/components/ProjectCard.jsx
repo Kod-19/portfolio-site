@@ -4,6 +4,34 @@ const ProjectCard = ({ title, desc, img, imgFit = 'cover', imgPosition = 'center
   const [showCaseStudy, setShowCaseStudy] = useState(false)
   const isInProgress = status?.toLowerCase() === 'in progress'
 
+  const renderCaseStudy = () => {
+    if (!caseStudy) return null
+
+    const challenge = (caseStudy.match(/Challenge:\s*([\s\S]*?)(?=Approach:|Result:|$)/i) || [])[1]?.trim()
+    const approach = (caseStudy.match(/Approach:\s*([\s\S]*?)(?=Result:|$)/i) || [])[1]?.trim()
+    const result = (caseStudy.match(/Result:\s*([\s\S]*)$/i) || [])[1]?.trim()
+
+    return (
+      <>
+        {challenge && (
+          <p className='text-sm text-(--text-color)'>
+            <strong>Challenge:</strong> {challenge}
+          </p>
+        )}
+        {approach && (
+          <p className='text-sm text-(--text-color)'>
+            <strong>Approach:</strong> {approach}
+          </p>
+        )}
+        {result && (
+          <p className='text-sm text-(--text-color)'>
+            <strong>Result:</strong> {result}
+          </p>
+        )}
+      </>
+    )
+  }
+
   return (
     <article className='interactive-card group flex h-full flex-col rounded-lg p-4 sm:p-5'>
       {img ? (
@@ -61,11 +89,7 @@ const ProjectCard = ({ title, desc, img, imgFit = 'cover', imgPosition = 'center
         <div className='mt-4 rounded-b-lg border-t border-white/6 pt-4'>
           <div className='space-y-3'>
 
-                  {caseStudy ? (
-                    <p className='text-sm text-(--text-color)'>{caseStudy}</p>
-                  ) : (
-                    <p className='text-sm text-(--text-color)'>No additional case study details available.</p>
-                  )}
+                  {caseStudy ? renderCaseStudy() : <p className='text-sm text-(--text-color)'>No additional case study details available.</p>}
 
                   {details && details.length > 0 && (
                     <ul className='list-disc pl-5 pt-2 text-sm text-(--text-color)'>
