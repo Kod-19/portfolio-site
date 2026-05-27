@@ -10,6 +10,8 @@ export const featuredProjects = [
     demoLink: 'https://beckery-s.vercel.app/',
     tags: ['React', 'Tailwind CSS', 'Vercel', 'Client'],
     status: 'Live demo',
+    caseStudy: 'Built a fast, mobile-first storefront for a local bakery with clear product pages, quick order CTAs, and optimized images for performance.',
+    details: ['Mobile-first layout', 'Optimized images and lazy loading', 'Easy product listing and contact flow'],
   },
   {
     title: 'KanFlow',
@@ -18,6 +20,8 @@ export const featuredProjects = [
     demoLink: 'https://kan-flow-ivory.vercel.app/',
     tags: ['React', 'Tailwind CSS', 'Vercel', 'Personal'],
     status: 'Live demo',
+    caseStudy: 'Created a lightweight task manager with simple state syncing, keyboard-driven interactions, and responsive layout for desktop and mobile.',
+    details: ['Keyboard shortcuts for faster entry', 'Persistent local storage', 'Responsive dashboard layout'],
   },
 ]
 

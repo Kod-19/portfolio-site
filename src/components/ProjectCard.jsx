@@ -1,12 +1,15 @@
-const ProjectCard = ({ title, desc, img, imgFit = 'cover', imgPosition = 'center', demoLink, tags = [], status }) => {
+import { useState } from 'react'
+
+const ProjectCard = ({ title, desc, img, imgFit = 'cover', imgPosition = 'center', demoLink, tags = [], status, caseStudy, details = [] }) => {
+  const [showCaseStudy, setShowCaseStudy] = useState(false)
   const isInProgress = status?.toLowerCase() === 'in progress'
 
   return (
     <article className='interactive-card group flex h-full flex-col rounded-lg p-4 sm:p-5'>
       {img ? (
-        <div className='overflow-hidden rounded-lg border border-white/10 bg-(--surface-bg)'>
+        <div className='flex h-44 items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-(--surface-bg) sm:h-56'>
           <img
-            className='h-44 w-full transition duration-500 group-hover:scale-105 sm:h-56'
+            className='max-h-full max-w-full transition duration-500 group-hover:scale-105'
             src={img}
             alt={title}
             style={{ objectFit: imgFit, objectPosition: imgPosition }}
@@ -33,15 +36,46 @@ const ProjectCard = ({ title, desc, img, imgFit = 'cover', imgPosition = 'center
           ))}
         </div>
       )}
-      {demoLink && !isInProgress && (
-        <a
-          href={demoLink}
-          target='_blank'
-          rel='noopener noreferrer'
-          className='button-pop mt-auto inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg) px-4 py-2 text-sm font-bold text-(--primary-color) sm:w-fit'
+      <div className='mt-3 flex w-full gap-3 sm:w-auto'>
+        {demoLink && !isInProgress && (
+          <a
+            href={demoLink}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='button-pop inline-flex min-h-11 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg) px-4 py-2 text-sm font-bold text-(--primary-color) sm:w-fit'
+          >
+            View Demo
+          </a>
+        )}
+
+        <button
+          type='button'
+          onClick={() => setShowCaseStudy((v) => !v)}
+          aria-expanded={showCaseStudy}
+          className='button-pop mt-auto inline-flex min-h-11 items-center justify-center rounded-lg bg-(--tertiary-color) px-4 py-2 text-sm font-bold text-(--title-color) sm:w-fit cursor-pointer'
         >
-          View Demo
-        </a>
+          {showCaseStudy ? 'Hide Case Study' : 'Case Study'}
+        </button>
+      </div>
+      {showCaseStudy && (
+        <div className='mt-4 rounded-b-lg border-t border-white/6 pt-4'>
+          <div className='space-y-3'>
+
+                  {caseStudy ? (
+                    <p className='text-sm text-(--text-color)'>{caseStudy}</p>
+                  ) : (
+                    <p className='text-sm text-(--text-color)'>No additional case study details available.</p>
+                  )}
+
+                  {details && details.length > 0 && (
+                    <ul className='list-disc pl-5 pt-2 text-sm text-(--text-color)'>
+                      {details.map((d) => (
+                        <li key={d}>{d}</li>
+                      ))}
+                    </ul>
+                  )}
+          </div>
+        </div>
       )}
     </article>
   )

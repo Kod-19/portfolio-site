@@ -46,7 +46,7 @@ const Contact = () => {
             </a>
             <a
               href='/payments'
-              className='button-pop inline-flex min-h-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg) px-5 py-3 text-sm text-(--title-color) sm:text-base'
+              className='button-pop inline-flex min-h-12 items-center justify-center rounded-lg bg-(--accent-color) px-5 py-3 text-sm font-black text-(--dark-bg) shadow-xl shadow-(--accent-color)/20 sm:text-base'
             >
               Make Payment
             </a>

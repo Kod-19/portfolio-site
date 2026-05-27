@@ -3,7 +3,6 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import ServicesOverview from './components/ServicesOverview'
 import Projects from './components/Projects'
-import ProjectProof from './components/ProjectProof'
 import Pricing from './components/Pricing'
 import BlogPreview from './components/BlogPreview'
 import Process from './components/Process'
@@ -39,7 +38,6 @@ const App = () => {
             <Hero />
             <ServicesOverview />
             <Projects />
-            <ProjectProof />
             <Pricing />
             <BlogPreview />
             <Process />

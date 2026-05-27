@@ -9,7 +9,7 @@ const footerLinks = [
     title: 'Explore',
     links: [
       { label: 'Home', href: '/' },
-      { label: 'Projects', href: '/#projects' },
+      { label: 'Projects', href: '/projects' },
       { label: 'Pricing', href: '/#pricing' },
       { label: 'Blog', href: '/blog' },
       { label: 'Contact', href: '/#contact' },
@@ -59,7 +59,7 @@ const socialLinks = [
 
 const mobileLinks = [
   { label: 'Services', href: '/#services' },
-  { label: 'Projects', href: '/#projects' },
+  { label: 'Projects', href: '/projects' },
   { label: 'Pricing', href: '/#pricing' },
   { label: 'Blog', href: '/blog' },
 ]

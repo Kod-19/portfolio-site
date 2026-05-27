@@ -7,7 +7,7 @@ const Navbar = () => {
   const navItems = [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/#services' },
-    { label: 'Projects', href: '/#projects' },
+    { label: 'Projects', href: '/projects' },
     { label: 'Pricing', href: '/#pricing' },
     { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: '/#contact' },
@@ -80,7 +80,7 @@ const Navbar = () => {
               <a
                 href='/payments'
                 onClick={() => setOpen(false)}
-                className='block rounded-lg px-3 py-3 text-center text-(--primary-color) transition duration-300 hover:bg-white/5'
+                className='block rounded-lg bg-(--accent-color) px-3 py-3 text-center font-bold text-(--dark-bg) shadow-lg shadow-(--accent-color)/20 transition duration-300 hover:bg-[color-mix(in_srgb,var(--accent-color),white,85%)]'
               >
                 Make Payment
               </a>
