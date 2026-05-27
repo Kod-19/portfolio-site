@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import useWeb3Forms from '@web3forms/react'
 
 import Title from '../components/Title'
 
@@ -51,22 +50,37 @@ const ProjectBriefPage = () => {
   const { register, reset, handleSubmit } = useForm()
   const [result, setResult] = useState(null)
 
-  const accessKey = '88eec560-64b0-4d12-9c75-26e6f360bdbd'
+  const whatsappNumber = '233595363184'
 
-  const { submit: onSubmit } = useWeb3Forms({
-    access_key: accessKey,
-    settings: {
-      from_name: 'KD Studios',
-      subject: 'Project Brief',
-    },
-    onSuccess: (msg) => {
-      setResult(msg)
-      reset()
-    },
-    onError: (msg) => {
-      setResult(msg)
-    },
-  })
+  const onSubmit = (data) => {
+    const pagesNeeded = Array.isArray(data.pages_needed) ? data.pages_needed.join(', ') : data.pages_needed || 'None'
+    const featuresNeeded = Array.isArray(data.features_needed) ? data.features_needed.join(', ') : data.features_needed || 'None'
+
+    const messageLines = [
+      'New project brief from KD Studios website:',
+      `Name: ${data.name || 'N/A'}`,
+      `Email: ${data.email || 'N/A'}`,
+      `Phone: ${data.phone || 'N/A'}`,
+      `Business / brand: ${data.business_name || 'N/A'}`,
+      `Project type: ${data.site_type || 'N/A'}`,
+      `Timeline: ${data.timeline || 'N/A'}`,
+      `Budget: ${data.budget || 'N/A'}`,
+      `Current website: ${data.current_website || 'None'}`,
+      `Pages needed: ${pagesNeeded}`,
+      `Features needed: ${featuresNeeded}`,
+      `Main goal: ${data.main_goal || 'N/A'}`,
+      `Target audience: ${data.target_audience || 'N/A'}`,
+      `Design style: ${data.design_style || 'N/A'}`,
+      `References: ${data.references || 'N/A'}`,
+      `Content ready: ${data.content_ready || 'N/A'}`,
+      `Additional notes: ${data.extra_notes || 'N/A'}`,
+    ]
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageLines.join('\n'))}`
+    window.open(whatsappUrl, '_blank')
+    setResult('WhatsApp chat opened. Send the project brief message to complete submission.')
+    reset()
+  }
 
   return (
     <main className='min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(102,227,255,0.12),transparent_34%),radial-gradient(circle_at_85%_10%,rgba(255,209,102,0.08),transparent_28%),var(--dark-bg)] text-(--text-color) font-sans selection:bg-sky-400/25'>

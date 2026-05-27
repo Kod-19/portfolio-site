@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import useWeb3Forms from '@web3forms/react'
 
 import Title from './Title'
 import linkedInIcon from '../assets/linkedIn_icon.png'
@@ -13,22 +12,21 @@ const Contact = () => {
   const { register, reset, handleSubmit } = useForm()
   const [result, setResult] = useState(null)
 
-  const accessKey = '88eec560-64b0-4d12-9c75-26e6f360bdbd'
+  const whatsappNumber = '233595363184'
 
-  const { submit: onSubmit } = useWeb3Forms({
-    access_key: accessKey,
-    settings: {
-      from_name: 'KD Studios',
-      subject: 'Message From Customer',
-    },
-    onSuccess: (msg) => {
-      setResult(msg)
-      reset()
-    },
-    onError: (msg) => {
-      setResult(msg)
-    },
-  })
+  const onSubmit = (data) => {
+    const messageLines = [
+      'New message from KD Studios website:',
+      `Name: ${data['first-name'] || 'N/A'}`,
+      `Email: ${data.email || 'N/A'}`,
+      `Message: ${data.message || 'N/A'}`,
+    ]
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageLines.join('\n'))}`
+    window.open(whatsappUrl, '_blank')
+    setResult('WhatsApp chat opened. Send the message to complete the submission.')
+    reset()
+  }
 
   return (
     <section>
