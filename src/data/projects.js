@@ -1,4 +1,3 @@
-import demo1 from '../assets/demo1.png'
 import demo2 from '../assets/demo2.png'
 import dem03 from '../assets/demo3.png'
 
@@ -10,16 +9,6 @@ export const featuredProjects = [
     img: dem03,
     demoLink: 'https://beckery-s.vercel.app/',
     tags: ['React', 'Tailwind CSS', 'Vercel', 'Client'],
-    status: 'Live demo',
-  },
-  {
-    title: 'Recipe Planner',
-    desc: 'A simple recipe management app to organize and plan your meals.',
-    img: demo1,
-    imgFit: 'contain',
-    imgPosition: 'top center',
-    demoLink: 'https://peaceful-success-production-37b3.up.railway.app/',
-    tags: ['React', 'Node.js', 'Express', 'Personal'],
     status: 'Live demo',
   },
   {

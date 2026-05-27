@@ -10,7 +10,6 @@ const PaymentPage = () => {
   const [amount, setAmount] = useState('')
   const [loading, setLoading] = useState(false)
 
-  // Load Paystack Script
   useEffect(() => {
     const script = document.createElement('script')
     script.src = 'https://js.paystack.co/v1/inline.js'
@@ -32,14 +31,13 @@ const PaymentPage = () => {
     setLoading(true)
 
     const handler = window.PaystackPop.setup({
-      key: 'pk_live_a5570595788b649e2ec64179c72bd4f456b77286', // REPLACE WITH YOUR PUBLIC KEY
+      key: 'pk_live_a5570595788b649e2ec64179c72bd4f456b77286',
       email: email,
-      amount: amount * 100, // Paystack expects amount in Kobo/Cents
-      currency: 'GHS', // Change to NGN or USD as needed
+      amount: amount * 100,
+      currency: 'GHS',
       callback: (response) => {
         setLoading(false)
         alert('Payment successful! Reference: ' + response.reference)
-        // You can redirect here: window.location.href = '/success'
       },
       onClose: () => {
         setLoading(false)
@@ -56,35 +54,35 @@ const PaymentPage = () => {
         <section className='pt-8 sm:pt-12'>
           <Title title='Secure Checkout' />
 
-          <div className='grid grid-cols-1 gap-10 pt-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14'>
+          <div className='grid grid-cols-1 gap-8 pt-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14'>
             <aside className='lg:sticky lg:top-28 lg:self-start'>
-              <h1 className='max-w-3xl text-4xl font-black leading-tight text-(--title-color) sm:text-5xl'>
-                Complete your payment securely.
+              <h1 className='max-w-3xl text-3xl font-black leading-tight text-(--title-color) sm:text-5xl'>
+                Complete your payment.
               </h1>
-              <p className='pt-6 text-base font-medium leading-8 text-(--text-color) sm:text-lg'>
-                All transactions are processed through Paystack. Your card details are never stored on our servers.
+              <p className='pt-5 text-base font-medium leading-8 text-(--text-color) sm:text-lg'>
+                Payments are processed securely through Paystack.
               </p>
 
               <div className='interactive-card mt-8 rounded-lg p-5'>
                 <h2 className='text-lg font-bold text-(--title-color)'>Payment Methods</h2>
                 <ul className='space-y-3 pt-4 text-sm font-medium leading-6 text-(--text-color)'>
-                  <li>✓ Mobile Money (MTN, Telecel, AT)</li>
-                  <li>✓ Visa & Mastercard</li>
-                  <li>✓ Bank Transfers</li>
+                  <li>Mobile Money</li>
+                  <li>Visa & Mastercard</li>
+                  <li>Bank Transfers</li>
                 </ul>
               </div>
 
               <div className='flex flex-col gap-3 pt-8 font-bold sm:flex-row lg:flex-col'>
                 <a
-                  href='/projects'
+                  href='/#pricing'
                   className='button-pop inline-flex min-h-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg) px-5 py-3 text-sm text-(--title-color) sm:text-base'
                 >
-                  Return to Projects
+                  View Pricing
                 </a>
               </div>
             </aside>
 
-            <form onSubmit={handlePayment} className='interactive-card rounded-lg p-5 sm:p-6 lg:p-8'>
+            <form onSubmit={handlePayment} className='interactive-card rounded-lg p-5 sm:p-6 lg:p-8' autoComplete='on'>
               <div>
                 <h2 className='text-2xl font-bold text-(--title-color)'>Transaction Details</h2>
                 <p className={helpClass}>Please enter your billing information to continue.</p>
@@ -98,6 +96,7 @@ const PaymentPage = () => {
                     type='email' 
                     className={fieldClass} 
                     placeholder='you@example.com' 
+                    autoComplete='email'
                     required 
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -111,6 +110,8 @@ const PaymentPage = () => {
                     type='number' 
                     className={fieldClass} 
                     placeholder='Enter amount' 
+                    autoComplete='transaction-amount'
+                    inputMode='decimal'
                     required 
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}

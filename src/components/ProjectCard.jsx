@@ -2,7 +2,7 @@ const ProjectCard = ({ title, desc, img, imgFit = 'cover', imgPosition = 'center
   const isInProgress = status?.toLowerCase() === 'in progress'
 
   return (
-    <article className='interactive-card group flex h-full flex-col rounded-lg border-l-4 border-l-(--tertiary-color) p-4 sm:p-5'>
+    <article className='interactive-card group flex h-full flex-col rounded-lg p-4 sm:p-5'>
       {img ? (
         <div className='overflow-hidden rounded-lg border border-white/10 bg-(--surface-bg)'>
           <img
@@ -22,12 +22,12 @@ const ProjectCard = ({ title, desc, img, imgFit = 'cover', imgPosition = 'center
           {status}
         </p>
       )}
-      <h3 className='px-1 pt-3 text-xl font-bold text-(--title-color) sm:text-2xl'>{title}</h3>
-      <p className='flex-1 px-1 py-4 text-base font-medium leading-7 text-(--text-color) sm:text-lg'>{desc}</p>
+      <h3 className='px-1 pt-3 text-xl font-black text-(--title-color) sm:text-2xl'>{title}</h3>
+      <p className='flex-1 px-1 py-4 text-sm font-medium leading-7 text-(--text-color) sm:text-base'>{desc}</p>
       {tags.length > 0 && (
         <div className='flex flex-wrap gap-2 px-1 pb-5'>
           {tags.map((tag) => (
-            <span key={tag} className='rounded-lg border border-(--card-border) bg-(--surface-bg) px-3 py-1 text-xs font-bold text-(--text-color)'>
+            <span key={tag} className='rounded-full border border-(--card-border) bg-(--surface-bg) px-3 py-1 text-xs font-bold text-(--text-color)'>
               {tag}
             </span>
           ))}
@@ -38,7 +38,7 @@ const ProjectCard = ({ title, desc, img, imgFit = 'cover', imgPosition = 'center
           href={demoLink}
           target='_blank'
           rel='noopener noreferrer'
-          className='button-pop mt-auto inline-flex min-h-11 w-fit items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg) px-4 py-2 text-sm font-bold text-(--primary-color)'
+          className='button-pop mt-auto inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg) px-4 py-2 text-sm font-bold text-(--primary-color) sm:w-fit'
         >
           View Demo
         </a>

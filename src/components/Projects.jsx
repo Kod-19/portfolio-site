@@ -9,7 +9,7 @@ const Projects = () => {
 
       <div className='pt-8 sm:pt-10'>
         <p className='max-w-3xl text-base font-medium leading-8 text-(--text-color) sm:text-lg'>
-          Here are some of the projects I've worked on, showcasing my skills in full stack development and my ability to create responsive and user-friendly applications.
+          A few selected builds showing responsive design, clean interfaces, and practical web functionality.
         </p>
       </div>
 
@@ -24,7 +24,7 @@ const Projects = () => {
           href='/projects'
           className='button-pop inline-flex min-h-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg) px-5 py-3 text-sm font-bold text-(--title-color) sm:text-base'
         >
-          View More Projects
+          More Projects
         </a>
       </div>
     </section>

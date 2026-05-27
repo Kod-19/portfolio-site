@@ -16,6 +16,7 @@ const siteTypes = [
   'E-commerce store',
   'Blog or content site',
   'Web app',
+  'Mobile app',
   'Not sure yet',
 ]
 
@@ -28,6 +29,8 @@ const featureOptions = [
   'Blog or articles',
   'User accounts',
   'Admin dashboard',
+  'Mobile app screens',
+  'API integration',
   'Social media links',
   'Analytics setup',
 ]
@@ -71,21 +74,21 @@ const ProjectBriefPage = () => {
         <section className='pt-8 sm:pt-12'>
           <Title title='Start a Project' />
 
-          <div className='grid grid-cols-1 gap-10 pt-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14'>
+          <div className='grid grid-cols-1 gap-8 pt-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14'>
             <aside className='lg:sticky lg:top-28 lg:self-start'>
-              <h1 className='max-w-3xl text-4xl font-black leading-tight text-(--title-color) sm:text-5xl'>
-                Tell me what your website should do.
+              <h1 className='max-w-3xl text-3xl font-black leading-tight text-(--title-color) sm:text-5xl'>
+                Tell me what your project should do.
               </h1>
-              <p className='pt-6 text-base font-medium leading-8 text-(--text-color) sm:text-lg'>
-                Share the idea, the goals, and the features you already have in mind. Clear answers help me understand the project faster and suggest the right structure for your site.
+              <p className='pt-5 text-base font-medium leading-8 text-(--text-color) sm:text-lg'>
+                Share the idea, the goals, and the features you already have in mind. Clear answers help me understand the project faster and suggest the right structure for your website, web app, or mobile app.
               </p>
 
-              <div className='interactive-card mt-8 rounded-lg p-5'>
+              <div className='interactive-card mt-8 hidden rounded-lg p-5 sm:block'>
                 <h2 className='text-lg font-bold text-(--title-color)'>Helpful Guidelines</h2>
                 <ul className='space-y-3 pt-4 text-sm font-medium leading-6 text-(--text-color)'>
                   <li>Write in simple words. You do not need technical terms.</li>
                   <li>Mention the main action visitors should take, such as book, call, buy, read, or submit a form.</li>
-                  <li>Add examples of websites you like if you have any.</li>
+                  <li>Add examples of websites or apps you like if you have any.</li>
                   <li>If you are unsure about something, choose “Not sure yet” and explain it in the notes.</li>
                 </ul>
               </div>
@@ -107,7 +110,7 @@ const ProjectBriefPage = () => {
             </aside>
 
             <form onSubmit={handleSubmit(onSubmit)} className='interactive-card rounded-lg p-5 sm:p-6 lg:p-8' autoComplete='on'>
-              <input type='hidden' value='Website Project Brief' {...register('form_type')} />
+              <input type='hidden' value='Project Brief' {...register('form_type')} />
 
               <div>
                 <h2 className='text-2xl font-bold text-(--title-color)'>Your Details</h2>
@@ -140,9 +143,9 @@ const ProjectBriefPage = () => {
 
               <div className='grid grid-cols-1 gap-5 pt-6 md:grid-cols-2'>
                 <div>
-                  <label className={labelClass} htmlFor='site-type'>What type of site do you need?</label>
+                  <label className={labelClass} htmlFor='site-type'>What type of project do you need?</label>
                   <select id='site-type' className={fieldClass} defaultValue='' {...register('site_type', { required: true })}>
-                    <option value='' disabled>Select a site type</option>
+                    <option value='' disabled>Select a project type</option>
                     {siteTypes.map((type) => (
                       <option key={type} value={type}>{type}</option>
                     ))}
@@ -178,7 +181,7 @@ const ProjectBriefPage = () => {
 
               <div className='mt-10 border-t border-white/10 pt-8'>
                 <h2 className='text-2xl font-bold text-(--title-color)'>Pages and Features</h2>
-                <p className={helpClass}>Select anything you expect the website to include. It is okay if this changes later.</p>
+                <p className={helpClass}>Select anything you expect the project to include. It is okay if this changes later.</p>
               </div>
 
               <fieldset className='pt-6'>
@@ -212,15 +215,15 @@ const ProjectBriefPage = () => {
 
               <div className='space-y-5 pt-6'>
                 <div>
-                  <label className={labelClass} htmlFor='main-goal'>What is the main goal of the site?</label>
+                  <label className={labelClass} htmlFor='main-goal'>What is the main goal of the project?</label>
                   <textarea id='main-goal' className={`${fieldClass} min-h-28 resize-y`} placeholder='Example: I want visitors to see my services and book a consultation.' autoComplete='on' {...register('main_goal', { required: true })} />
                 </div>
                 <div>
-                  <label className={labelClass} htmlFor='audience'>Who is the website for?</label>
+                  <label className={labelClass} htmlFor='audience'>Who is the project for?</label>
                   <textarea id='audience' className={`${fieldClass} min-h-24 resize-y`} placeholder='Example: Small business owners, students, event clients, restaurant customers...' autoComplete='on' {...register('target_audience')} />
                 </div>
                 <div>
-                  <label className={labelClass} htmlFor='style'>How should the site look and feel?</label>
+                  <label className={labelClass} htmlFor='style'>How should it look and feel?</label>
                   <textarea id='style' className={`${fieldClass} min-h-24 resize-y`} placeholder='Example: Clean and modern, bold and colorful, luxury, playful, simple and professional...' autoComplete='on' {...register('design_style')} />
                 </div>
                 <div>

@@ -5,7 +5,6 @@ import useWeb3Forms from '@web3forms/react'
 import Title from './Title'
 import linkedInIcon from '../assets/linkedIn_icon.png'
 import githubIcon from '../assets/github_icon.png'
-import snapchatIcon from '../assets/snapchat_icon.png'
 import whatsappIcon from '../assets/whatsapp_icon.png'
 import instagramIcon from '../assets/instagram_icon.png'
 import phoneIcon from '../assets/phone_icon.png'
@@ -34,36 +33,33 @@ const Contact = () => {
   return (
     <section>
       <Title title='Contact Me' />
-      <div id='contact' className='grid grid-cols-1 gap-10 pb-20 pt-8 lg:grid-cols-2 lg:gap-14'>
-        <div className='pt-10'>
+      <div id='contact' className='grid grid-cols-1 gap-8 pb-20 pt-8 lg:grid-cols-2 lg:gap-14'>
+        <div className='pt-6 sm:pt-10'>
           <h2 className='text-3xl font-bold text-(--title-color) sm:text-4xl'>Let's Connect</h2>
-          <p className='pt-7 text-base font-medium leading-8 text-(--text-color) sm:text-lg'>
-            Feel free to reach out to KD Studios for collaborations, project ideas, or just to say hello. I'm always open to discussing new opportunities.
+          <p className='pt-5 text-base font-medium leading-8 text-(--text-color) sm:text-lg'>
+            Ready to build a website, store, custom web app, or mobile app idea? Send a message or start with a short project brief.
           </p>
-          <div className='interactive-card mt-8 rounded-lg p-5'>
-            <h3 className='text-xl font-bold text-(--title-color)'>Already have a website idea?</h3>
-            <p className='pt-3 text-sm font-medium leading-7 text-(--text-color) sm:text-base'>
-              If you know you need a portfolio, booking site, landing page, business website, or custom web app, fill out a short project brief so I can understand your goals, features, timeline, and style before we talk.
-            </p>
+          <div className='mt-7 flex flex-col gap-3 font-bold sm:flex-row'>
             <a
               href='/project-brief'
-              className='button-pop mt-5 inline-flex min-h-12 items-center justify-center rounded-lg bg-(--tertiary-color) px-5 py-3 text-sm font-bold text-(--title-color) sm:text-base'
+              className='button-pop inline-flex min-h-12 items-center justify-center rounded-lg bg-(--tertiary-color) px-5 py-3 text-sm text-(--title-color) sm:text-base'
             >
-              Start a Website Project Brief
+              Start Project Brief
+            </a>
+            <a
+              href='/payments'
+              className='button-pop inline-flex min-h-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg) px-5 py-3 text-sm text-(--title-color) sm:text-base'
+            >
+              Make Payment
             </a>
           </div>
-          <p className='pt-9 text-xs font-bold uppercase tracking-[0.18em] text-(--primary-color) sm:text-sm'>
-            Active on various social media platforms
-          </p>
+
           <div className='flex flex-wrap gap-4 pt-8'>
             <a
              className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://www.linkedin.com/in/kwameofeidawson?utm_source=share_via&utm_content=profile&utm_medium=member_ios'><img className='h-7 w-7' src={linkedInIcon} alt='LinkedIn' />
             </a>
             <a
              className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://github.com/Kod-19'><img className='h-7 w-7' src={githubIcon} alt='GitHub' />
-            </a>
-            <a
-             className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://snapchat.com/t/UFDTyOJG'><img className='h-7 w-7' src={snapchatIcon} alt='Snapchat' />
             </a>
             <a
              className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://wa.me/0595363184'><img className='h-7 w-7' src={whatsappIcon} alt='WhatsApp' />
@@ -82,7 +78,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className='pt-10'>
+        <div className='pt-6 sm:pt-10'>
           <h2 className='text-3xl font-bold text-(--title-color) sm:text-4xl'>Send a Message</h2>
 
           <div className='interactive-card mt-8 w-full rounded-lg p-5 sm:p-6'>
@@ -94,14 +90,6 @@ const Contact = () => {
                 placeholder='First Name'
                 autoComplete='given-name'
                 {...register('first-name', { required: true })}
-              />
-              <input
-                type='text'
-                id='other-names'
-                className='mt-5 w-full rounded-lg border border-(--card-border) bg-(--dark-bg) px-4 py-3 text-(--title-color) outline-none transition focus:border-(--primary-color) focus:ring-2 focus:ring-sky-400/20'
-                placeholder='Other Names'
-                autoComplete='additional-name'
-                {...register('other-names')}
               />
               <input
                 type='email'

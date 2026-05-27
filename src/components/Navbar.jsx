@@ -1,16 +1,15 @@
 import { useState } from 'react'
-import logo from '../assets/logo.png'
+import logo from '../assets/logo_optimized.png'
 
 const Navbar = () => {
   const [open, setOpen] = useState(false)
 
   const navItems = [
     { label: 'Home', href: '/' },
-    { label: 'About', href: '/#about' },
+    { label: 'Services', href: '/#services' },
     { label: 'Projects', href: '/#projects' },
-    { label: 'More Projects', href: '/projects' },
-    { label: 'Project Brief', href: '/project-brief' },
-    { label: 'Payments', href: '/payments' },
+    { label: 'Pricing', href: '/#pricing' },
+    { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: '/#contact' },
   ]
 
@@ -28,7 +27,7 @@ const Navbar = () => {
           </span>
         </a>
 
-        <ul className='hidden gap-5 text-sm font-semibold md:flex lg:gap-7'>
+        <ul className='hidden items-center gap-5 text-sm font-semibold md:flex lg:gap-7'>
           {navItems.map((item) => (
             <li key={item.href}>
               <a href={item.href} className='relative py-2 transition duration-300 hover:text-(--title-color) after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-(--primary-color) after:transition-all after:duration-300 hover:after:w-full'>
@@ -36,6 +35,11 @@ const Navbar = () => {
               </a>
             </li>
           ))}
+          <li>
+            <a href='/project-brief' className='button-pop inline-flex min-h-11 items-center justify-center rounded-lg bg-(--tertiary-color) px-4 py-2 text-(--title-color)'>
+              Start Project
+            </a>
+          </li>
         </ul>
 
         <button
@@ -63,6 +67,24 @@ const Navbar = () => {
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href='/project-brief'
+                onClick={() => setOpen(false)}
+                className='mt-2 block rounded-lg bg-(--tertiary-color) px-3 py-3 text-center font-bold text-(--title-color)'
+              >
+                Start Project
+              </a>
+            </li>
+            <li>
+              <a
+                href='/payments'
+                onClick={() => setOpen(false)}
+                className='block rounded-lg px-3 py-3 text-center text-(--primary-color) transition duration-300 hover:bg-white/5'
+              >
+                Make Payment
+              </a>
+            </li>
           </ul>
         </nav>
       )}
