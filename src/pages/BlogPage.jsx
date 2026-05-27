@@ -36,7 +36,7 @@ const BlogPage = () => {
 
                   <div className='grid gap-3 pt-5 sm:grid-cols-3'>
                     {post.highlights.map((highlight) => (
-                      <p key={highlight} className='rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-xs font-bold text-(--title-color)'>
+                      <p key={highlight} className='rounded-lg border border-white/10 bg-white/3 px-3 py-2 text-xs font-bold text-(--title-color)'>
                         {highlight}
                       </p>
                     ))}
@@ -50,7 +50,7 @@ const BlogPage = () => {
 
                   <div className='flex flex-wrap gap-2 pt-5'>
                     {post.tags.map((tag) => (
-                      <span key={tag} className='rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs font-bold text-(--text-color)'>
+                      <span key={tag} className='rounded-full border border-white/10 bg-white/4 px-3 py-2 text-xs font-bold text-(--text-color)'>
                         {tag}
                       </span>
                     ))}
