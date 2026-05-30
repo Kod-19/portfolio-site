@@ -14,8 +14,13 @@ const Navbar = () => {
       const id = href.slice(hashIndex + 1)
       if (currentPath === '/') {
         e.preventDefault()
-        const el = document.getElementById(id)
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        // Prefer app-level scroll helper if available (accounts for sticky header)
+        if (window && typeof window.__scrollToHash === 'function') {
+          window.__scrollToHash(id)
+        } else {
+          const el = document.getElementById(id)
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
       }
       // If not on home, allow the link to navigate to '/#id' which loads home and
       // the browser will jump to the hash after navigation.

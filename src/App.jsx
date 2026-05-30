@@ -23,26 +23,41 @@ const App = () => {
   const isBlogPage = currentPath === '/blog'
 
   useEffect(() => {
-    const scrollToHash = () => {
+    // Scroll to an element id while accounting for a sticky header height.
+    const scrollToHash = (hash) => {
       try {
-        const hash = window.location.hash ? window.location.hash.slice(1) : ''
-        if (!hash) return
-        const el = document.getElementById(hash)
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
+        const id = hash || (window.location.hash ? window.location.hash.slice(1) : '')
+        if (!id) return
+        const el = document.getElementById(id)
+        if (!el) return
+
+        // Measure header height (supports responsive header heights)
+        const header = document.querySelector('header')
+        const headerHeight = header ? header.offsetHeight : 0
+
+        const rect = el.getBoundingClientRect()
+        const top = window.scrollY + rect.top - headerHeight - 12 // 12px extra padding
+
+        window.scrollTo({ top, behavior: 'smooth' })
       } catch (err) {
         // ignore
       }
     }
 
+    // Expose for other components (Navbar) to call directly when on the same page
+    window.__scrollToHash = scrollToHash
+
     // Attempt to scroll shortly after render (handles navigation to '/#id')
-    const t = setTimeout(scrollToHash, 50)
-    const onHash = () => setTimeout(scrollToHash, 50)
+    const t = setTimeout(() => scrollToHash(), 60)
+    const onHash = () => setTimeout(() => scrollToHash(), 60)
     window.addEventListener('hashchange', onHash)
     return () => {
       clearTimeout(t)
       window.removeEventListener('hashchange', onHash)
+      try {
+        // cleanup exposed function
+        if (window.__scrollToHash) delete window.__scrollToHash
+      } catch (e) {}
     }
   }, [currentPath])
 
