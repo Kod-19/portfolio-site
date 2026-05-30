@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react"
+import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import ServicesOverview from './components/ServicesOverview'
@@ -20,6 +21,30 @@ const App = () => {
   const isProjectBriefPage = currentPath === '/project-brief'
   const isPaymentPage = currentPath === '/payments'
   const isBlogPage = currentPath === '/blog'
+
+  useEffect(() => {
+    const scrollToHash = () => {
+      try {
+        const hash = window.location.hash ? window.location.hash.slice(1) : ''
+        if (!hash) return
+        const el = document.getElementById(hash)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      } catch (err) {
+        // ignore
+      }
+    }
+
+    // Attempt to scroll shortly after render (handles navigation to '/#id')
+    const t = setTimeout(scrollToHash, 50)
+    const onHash = () => setTimeout(scrollToHash, 50)
+    window.addEventListener('hashchange', onHash)
+    return () => {
+      clearTimeout(t)
+      window.removeEventListener('hashchange', onHash)
+    }
+  }, [currentPath])
 
   return (
     <>

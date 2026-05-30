@@ -4,6 +4,25 @@ import logo from '../assets/logo_optimized.png'
 const Navbar = () => {
   const [open, setOpen] = useState(false)
 
+  const currentPath = window.location.pathname.replace(/\/$/, '') || '/'
+
+  const handleNavClick = (e, href) => {
+    // If the link targets a hash section (e.g. '/#pricing') and we're already
+    // on the home page, prevent full navigation and smooth-scroll to the id.
+    const hashIndex = href.indexOf('#')
+    if (hashIndex !== -1) {
+      const id = href.slice(hashIndex + 1)
+      if (currentPath === '/') {
+        e.preventDefault()
+        const el = document.getElementById(id)
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+      // If not on home, allow the link to navigate to '/#id' which loads home and
+      // the browser will jump to the hash after navigation.
+    }
+    setOpen(false)
+  }
+
   const navItems = [
     { label: 'Home', href: '/' },
     { label: 'Services', href: '/#services' },
@@ -30,7 +49,11 @@ const Navbar = () => {
         <ul className='hidden items-center gap-5 text-sm font-semibold md:flex lg:gap-7'>
           {navItems.map((item) => (
             <li key={item.href}>
-              <a href={item.href} className='relative py-2 transition duration-300 hover:text-(--title-color) after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-(--primary-color) after:transition-all after:duration-300 hover:after:w-full'>
+              <a
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className='relative py-2 transition duration-300 hover:text-(--title-color) after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-(--primary-color) after:transition-all after:duration-300 hover:after:w-full'
+              >
                 {item.label}
               </a>
             </li>
@@ -60,7 +83,7 @@ const Navbar = () => {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className='block rounded-lg px-3 py-3 transition duration-300 hover:bg-white/5 hover:text-(--title-color)'
                 >
                   {item.label}

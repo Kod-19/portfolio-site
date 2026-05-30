@@ -146,7 +146,7 @@ const PricingCard = ({ plan }) => (
       <DetailList title='Includes' items={plan.includes} />
     </div>
 
-    <div className='mt-6 rounded-lg border border-white/10 bg-white/[0.03] p-4'>
+    <div className='mt-6 rounded-lg border border-white/10 bg-white/3 p-4'>
       <p className='text-xs font-black uppercase tracking-[0.16em] text-(--primary-color)'>Delivery</p>
       <p className='pt-2 text-sm font-bold text-(--title-color)'>{plan.delivery}</p>
     </div>
