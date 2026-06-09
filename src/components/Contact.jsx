@@ -60,7 +60,7 @@ const Contact = () => {
              className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://github.com/Kod-19'><img className='h-7 w-7' src={githubIcon} alt='GitHub' />
             </a>
             <a
-             className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://wa.me/0595363184'><img className='h-7 w-7' src={whatsappIcon} alt='WhatsApp' />
+             className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://wa.me/233595363184'><img className='h-7 w-7' src={whatsappIcon} alt='WhatsApp' />
             </a>
             <a
              className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://www.instagram.com/kdstudios._?igsh=MWR1M2N5NzRmdjVpNw%3D%3D&utm_source=qr'><img className='h-7 w-7' src={instagramIcon} alt='Instagram' />
