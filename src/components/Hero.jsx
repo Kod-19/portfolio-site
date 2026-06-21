@@ -1,4 +1,5 @@
 import profile_pic from '../assets/profile_pic_optimized.jpg'
+import logo from '../assets/logo_optimized.png'
 
 const proofPoints = [
   'Responsive builds',
@@ -56,7 +57,7 @@ const Hero = () => {
 
       <div className='order-1 flex flex-col items-center lg:order-2 animate-fade-up'>
         <div className='animate-float-soft rounded-full border border-white/10 bg-(--surface-bg) p-2 shadow-2xl shadow-sky-500/10 sm:p-3'>
-          <img className='aspect-square w-40 rounded-full object-cover sm:w-56 lg:w-72' src={profile_pic} alt='KD Studios founder Kwame Dawson' />
+          <img className='aspect-square w-40 rounded-full object-cover sm:w-56 lg:w-72' src={logo} alt='KD Studios founder Kwame Dawson' />
         </div>
         <div className='pt-5 text-center sm:pt-7'>
           <p className='text-xl font-bold text-(--title-color) sm:text-2xl'>
