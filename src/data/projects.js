@@ -32,6 +32,19 @@ export const featuredProjects = [
       'Role: personal full-stack implementation (frontend, data, deployment)'
     ]
   },
+]
+
+export const otherProjects = [
+  {
+    title: 'KanFlow',
+    desc: 'A productivity app to manage and track your daily tasks.',
+    img: demo2,
+    demoLink: 'https://kan-flow-ivory.vercel.app/',
+    tags: ['React', 'Tailwind CSS', 'Vercel', 'Personal'],
+    status: 'Live demo',
+    caseStudy: 'Challenge: design a productivity tool that encourages quick task entry and low cognitive load. Approach: implemented a lightweight state model with keyboard shortcuts, persistent local storage, and a focused dashboard layout. Result: an intuitive, responsive task manager that supports rapid entry and short, repeatable workflows across devices.',
+    details: ['Keyboard shortcuts for faster entry', 'Persistent local storage', 'Responsive dashboard layout'],
+  },
   {
     title: 'Netflix Clone',
     desc: 'A Netflix-style UI prototype showcasing movie browsing, auth, and watchlist features.',
@@ -48,19 +61,6 @@ export const featuredProjects = [
       'Optimized images and lazy loading for performance',
       'Role: personal full-stack prototype (frontend + backend services)'
     ],
-  },
-]
-
-export const otherProjects = [
-  {
-    title: 'KanFlow',
-    desc: 'A productivity app to manage and track your daily tasks.',
-    img: demo2,
-    demoLink: 'https://kan-flow-ivory.vercel.app/',
-    tags: ['React', 'Tailwind CSS', 'Vercel', 'Personal'],
-    status: 'Live demo',
-    caseStudy: 'Challenge: design a productivity tool that encourages quick task entry and low cognitive load. Approach: implemented a lightweight state model with keyboard shortcuts, persistent local storage, and a focused dashboard layout. Result: an intuitive, responsive task manager that supports rapid entry and short, repeatable workflows across devices.',
-    details: ['Keyboard shortcuts for faster entry', 'Persistent local storage', 'Responsive dashboard layout'],
   },
   {
     title: 'API Practice Builds',
