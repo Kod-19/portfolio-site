@@ -44,6 +44,12 @@ const Hero = () => {
           >
             View Pricing
           </a>
+          <a
+            href='/payments'
+            className='hidden lg:inline-flex min-h-12 items-center justify-center rounded-lg border border-(--primary-color)/30 bg-(--surface-bg) px-6 py-3 text-sm font-black text-(--title-color) shadow-md transition hover:border-(--primary-color) hover:text-(--primary-color) sm:text-base'
+          >
+            Make Payment
+          </a>
         </div>
 
         <div className='hidden gap-3 pt-8 sm:grid sm:grid-cols-3'>
