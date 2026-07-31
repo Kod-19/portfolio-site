@@ -56,27 +56,40 @@ const ProjectBriefPage = () => {
     const pagesNeeded = Array.isArray(data.pages_needed) ? data.pages_needed.join(', ') : data.pages_needed || 'None'
     const featuresNeeded = Array.isArray(data.features_needed) ? data.features_needed.join(', ') : data.features_needed || 'None'
 
-    const messageLines = [
-      'New project brief from KD Studios website:',
-      `Name: ${data.name || 'N/A'}`,
-      `Email: ${data.email || 'N/A'}`,
-      `Phone: ${data.phone || 'N/A'}`,
-      `Business / brand: ${data.business_name || 'N/A'}`,
-      `Project type: ${data.site_type || 'N/A'}`,
-      `Timeline: ${data.timeline || 'N/A'}`,
-      `Budget: ${data.budget || 'N/A'}`,
-      `Current website: ${data.current_website || 'None'}`,
-      `Pages needed: ${pagesNeeded}`,
-      `Features needed: ${featuresNeeded}`,
-      `Main goal: ${data.main_goal || 'N/A'}`,
-      `Target audience: ${data.target_audience || 'N/A'}`,
-      `Design style: ${data.design_style || 'N/A'}`,
-      `References: ${data.references || 'N/A'}`,
-      `Content ready: ${data.content_ready || 'N/A'}`,
-      `Additional notes: ${data.extra_notes || 'N/A'}`,
+    const messageSections = [
+      ['New project brief from KD Studios website:'],
+      [
+        'Your Details',
+        `Name: ${data.name || 'N/A'}`,
+        `Email: ${data.email || 'N/A'}`,
+        `Phone: ${data.phone || 'N/A'}`,
+        `Business / brand: ${data.business_name || 'N/A'}`,
+      ],
+      [
+        'Project Basics',
+        `Project type: ${data.site_type || 'N/A'}`,
+        `Timeline: ${data.timeline || 'N/A'}`,
+        `Budget: ${data.budget || 'N/A'}`,
+        `Current website: ${data.current_website || 'None'}`,
+      ],
+      [
+        'Pages and Features',
+        `Pages needed: ${pagesNeeded}`,
+        `Features needed: ${featuresNeeded}`,
+      ],
+      [
+        'Project Direction',
+        `Main goal: ${data.main_goal || 'N/A'}`,
+        `Target audience: ${data.target_audience || 'N/A'}`,
+        `Design style: ${data.design_style || 'N/A'}`,
+        `References: ${data.references || 'N/A'}`,
+        `Content ready: ${data.content_ready || 'N/A'}`,
+        `Additional notes: ${data.extra_notes || 'N/A'}`,
+      ],
     ]
 
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageLines.join('\n'))}`
+    const whatsappMessage = messageSections.map((section) => section.join('\n')).join('\n\n')
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
     window.open(whatsappUrl, '_blank')
     setResult('WhatsApp chat opened. Send the project brief message to complete submission.')
     reset()
