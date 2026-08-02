@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { submitPublicMessage } from '../services/publicMessages'
 
-import Title from './Title'
+import Title from '../components/Title'
 import linkedInIcon from '../assets/linkedIn_icon.png'
 import githubIcon from '../assets/github_icon.png'
 import whatsappIcon from '../assets/whatsapp_icon.png'
@@ -11,21 +12,30 @@ import phoneIcon from '../assets/phone_icon.png'
 const Contact = () => {
   const { register, reset, handleSubmit } = useForm()
   const [result, setResult] = useState(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const whatsappNumber = '233595363184'
+  const onSubmit = async (data) => {
+    setIsSubmitting(true)
+    setResult('Sending message...')
 
-  const onSubmit = (data) => {
-    const messageLines = [
-      'New message from KD Studios website:',
-      `Name: ${data['first-name'] || 'N/A'}`,
-      `Email: ${data.email || 'N/A'}`,
-      `Message: ${data.message || 'N/A'}`,
-    ]
+    try {
+      // Saves directly to Firestore -> Dashboard Inbox
+      await submitPublicMessage({
+        type: 'contact',
+        source: 'portfolio_site',
+        name: data['first-name'] || '',
+        email: data.email || '',
+        message: data.message || '',
+      })
 
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messageLines.join('\n'))}`
-    window.open(whatsappUrl, '_blank')
-    setResult('WhatsApp chat opened. Send the message to complete the submission.')
-    reset()
+      setResult('Thank you! Your message has been sent successfully.')
+      reset()
+    } catch (error) {
+      console.error('Error submitting message:', error)
+      setResult('Failed to send message. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -54,23 +64,46 @@ const Contact = () => {
 
           <div className='flex flex-wrap gap-4 pt-8'>
             <a
-             className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://www.linkedin.com/in/kwameofeidawson?utm_source=share_via&utm_content=profile&utm_medium=member_ios'><img className='h-7 w-7' src={linkedInIcon} alt='LinkedIn' />
+              className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)'
+              target='_blank'
+              rel='noopener noreferrer'
+              href='https://www.linkedin.com/in/kwameofeidawson?utm_source=share_via&utm_content=profile&utm_medium=member_ios'
+            >
+              <img className='h-7 w-7' src={linkedInIcon} alt='LinkedIn' />
             </a>
             <a
-             className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://github.com/Kod-19'><img className='h-7 w-7' src={githubIcon} alt='GitHub' />
+              className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)'
+              target='_blank'
+              rel='noopener noreferrer'
+              href='https://github.com/Kod-19'
+            >
+              <img className='h-7 w-7' src={githubIcon} alt='GitHub' />
             </a>
             <a
-             className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://wa.me/233595363184'><img className='h-7 w-7' src={whatsappIcon} alt='WhatsApp' />
+              className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)'
+              target='_blank'
+              rel='noopener noreferrer'
+              href='https://wa.me/233595363184'
+            >
+              <img className='h-7 w-7' src={whatsappIcon} alt='WhatsApp' />
             </a>
             <a
-             className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)' target='_blank' rel='noopener noreferrer' href='https://www.instagram.com/kdstudios._?igsh=MWR1M2N5NzRmdjVpNw%3D%3D&utm_source=qr'><img className='h-7 w-7' src={instagramIcon} alt='Instagram' />
+              className='button-pop flex h-12 w-12 items-center justify-center rounded-lg border border-(--card-border) bg-(--surface-bg)'
+              target='_blank'
+              rel='noopener noreferrer'
+              href='https://www.instagram.com/kdstudios._?igsh=MWR1M2N5NzRmdjVpNw%3D%3D&utm_source=qr'
+            >
+              <img className='h-7 w-7' src={instagramIcon} alt='Instagram' />
             </a>
           </div>
 
           <p className='flex items-center gap-2 pt-9 font-semibold text-(--title-color)'>
             <img className='h-6 w-6 shrink-0' src={phoneIcon} alt='' aria-hidden='true' />
             <span>Call me:{' '}</span>
-            <a className='inline-flex min-h-11 items-center text-(--primary-color) underline-offset-4 transition hover:underline focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--primary-color)' href='tel:+233595363184'>
+            <a
+              className='inline-flex min-h-11 items-center text-(--primary-color) underline-offset-4 transition hover:underline focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--primary-color)'
+              href='tel:+233595363184'
+            >
               +233 59 536 3184
             </a>
           </p>
@@ -104,10 +137,18 @@ const Contact = () => {
                 autoComplete='on'
                 {...register('message', { required: true })}
               />
-              <button type='submit' className='button-pop mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-(--tertiary-color) px-5 py-3 font-bold text-(--title-color) sm:w-auto'>
-                Submit
+              <button
+                type='submit'
+                disabled={isSubmitting}
+                className='button-pop mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-(--tertiary-color) px-5 py-3 font-bold text-(--title-color) disabled:opacity-50 sm:w-auto'
+              >
+                {isSubmitting ? 'Sending...' : 'Submit'}
               </button>
-              {result && <span className='block pt-4 text-sm font-medium text-(--primary-color) sm:inline sm:pl-4 sm:pt-0'>{result}</span>}
+              {result && (
+                <span className='block pt-4 text-sm font-medium text-(--primary-color) sm:inline sm:pl-4 sm:pt-0'>
+                  {result}
+                </span>
+              )}
             </form>
           </div>
         </div>
