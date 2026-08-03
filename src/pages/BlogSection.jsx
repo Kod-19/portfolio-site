@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { portfolioService } from '../services/portfolioService';
+import React, { useEffect, useState } from "react";
+import { portfolioService } from "../services/portfolioService";
 
 export default function BlogSection() {
   const [posts, setPosts] = useState([]);
@@ -23,11 +23,15 @@ export default function BlogSection() {
   }
 
   return (
-    <section id="blog" className="py-20 bg-slate-900 border-t border-slate-800">
-      <div className="max-w-6xl mx-auto px-4">
+    <section id="blog" className="bg-slate-900 py-16 sm:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-12 xl:px-20">
         <div className="mb-10">
-          <h2 className="text-3xl font-extrabold text-white">Articles & Insights</h2>
-          <p className="text-slate-400 text-sm mt-1">Thoughts on engineering, design, and studio updates.</p>
+          <h2 className="text-3xl font-extrabold text-white">
+            Articles & Insights
+          </h2>
+          <p className="text-slate-400 text-sm mt-1">
+            Thoughts on engineering, design, and studio updates.
+          </p>
         </div>
 
         {posts.length === 0 ? (
@@ -49,9 +53,11 @@ export default function BlogSection() {
                 <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                   <div>
                     <div className="flex items-center justify-between text-[11px] text-slate-400 mb-2 font-mono">
-                      <span>{post.readTime || '3 min read'}</span>
+                      <span>{post.readTime || "3 min read"}</span>
                       {post.publishedAt && (
-                        <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
+                        <span>
+                          {new Date(post.publishedAt).toLocaleDateString()}
+                        </span>
                       )}
                     </div>
                     <h3 className="text-lg font-bold text-white hover:text-amber-400 transition cursor-pointer">

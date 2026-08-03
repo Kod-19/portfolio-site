@@ -9,6 +9,7 @@ import BlogPreview from "./components/BlogPreview";
 import Process from "./components/Process";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import SiteContentSections from "./components/SiteContentSections";
 import ProjectsPage from "./pages/ProjectsPage";
 import ProjectBriefPage from "./pages/ProjectBriefPage";
 import PaymentPage from "./pages/PaymentCheckout";
@@ -62,32 +63,35 @@ const App = () => {
   }, [currentPath]);
 
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <Navbar />
-      {isProjectBriefPage ? (
-        <ProjectBriefPage />
-      ) : isProjectsPage ? (
-        <ProjectsSection />
-      ) : isPaymentPage ? (
-        <PaymentPage />
-      ) : isBlogPage ? (
-        <BlogPage />
-      ) : (
-        <div className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(102,227,255,0.12),transparent_34%),radial-gradient(circle_at_85%_10%,rgba(255,209,102,0.08),transparent_28%),var(--dark-bg)] text-(--text-color) font-sans selection:bg-sky-400/25">
-          <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-12 xl:px-20">
-            <Hero />
-            <ServicesOverview />
-            <ProjectsSection />
-            <Pricing />
-            <BlogPreview />
-            <Process />
-            <Contact />
+      <main className="flex-1">
+        {isProjectBriefPage ? (
+          <ProjectBriefPage />
+        ) : isProjectsPage ? (
+          <ProjectsPage />
+        ) : isPaymentPage ? (
+          <PaymentPage />
+        ) : isBlogPage ? (
+          <BlogPage />
+        ) : (
+          <div className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(102,227,255,0.12),transparent_34%),radial-gradient(circle_at_85%_10%,rgba(255,209,102,0.08),transparent_28%),var(--dark-bg)] text-(--text-color) font-sans selection:bg-sky-400/25">
+            <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-12 xl:px-20">
+              <Hero />
+              <ServicesOverview />
+              <ProjectsSection />
+              <Pricing />
+              <BlogPreview />
+              <SiteContentSections />
+              <Process />
+              <Contact />
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </main>
       <Footer />
       <Analytics />
-    </>
+    </div>
   );
 };
 
