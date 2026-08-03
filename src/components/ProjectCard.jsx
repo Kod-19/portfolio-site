@@ -76,14 +76,6 @@ const ProjectCard = ({ title, desc, img, imgFit = 'cover', imgPosition = 'center
           </a>
         )}
 
-        <button
-          type='button'
-          onClick={() => setShowCaseStudy((v) => !v)}
-          aria-expanded={showCaseStudy}
-          className='button-pop mt-auto inline-flex min-h-11 items-center justify-center rounded-lg bg-(--tertiary-color) px-4 py-2 text-sm font-bold text-(--title-color) sm:w-fit cursor-pointer'
-        >
-          {showCaseStudy ? 'Hide Case Study' : 'Case Study'}
-        </button>
       </div>
       {showCaseStudy && (
         <div className='mt-4 rounded-b-lg border-t border-white/6 pt-4'>

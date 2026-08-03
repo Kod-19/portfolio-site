@@ -145,7 +145,9 @@ export const portfolioService = {
         .map((d) => ({ id: d.id, ...d.data() }))
         .filter((post) => post.publishStatus === "published");
 
-      posts.sort((a, b) => getDateValue(b.createdAt) - getDateValue(a.createdAt));
+      posts.sort(
+        (a, b) => getDateValue(b.createdAt) - getDateValue(a.createdAt),
+      );
       return posts;
     } catch (error) {
       console.error("Error fetching blog posts:", error);
@@ -166,8 +168,7 @@ export const portfolioService = {
       const post = snapshot.docs
         .map((docSnap) => ({ id: docSnap.id, ...docSnap.data() }))
         .find(
-          (item) =>
-            item.slug === slug && item.publishStatus === "published",
+          (item) => item.slug === slug && item.publishStatus === "published",
         );
 
       return post || null;
@@ -273,7 +274,10 @@ export const portfolioService = {
           createdAt: serverTimestamp(),
         });
       } catch (activityError) {
-        console.warn("Payment saved, but activity log was not created:", activityError);
+        console.warn(
+          "Payment saved, but activity log was not created:",
+          activityError,
+        );
       }
 
       return docRef.id;
