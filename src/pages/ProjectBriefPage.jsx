@@ -73,11 +73,13 @@ const ProjectBriefPage = () => {
         projectType: data.site_type || "",
         timeline: data.timeline || "",
         budget: data.budget || "",
+        currentWebsite: data.current_website || "",
         pages: pagesNeeded,
         features: featuresNeeded,
         mainGoal: data.main_goal || "",
         targetAudience: data.target_audience || "",
         designStyle: data.design_style || "",
+        references: data.references || "",
         contentReadiness: data.content_ready || "",
         extraNotes: data.extra_notes || "",
       });
