@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import logo from '../assets/logo_optimized.png'
+import { MenuIcon, X } from 'lucide-react';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false)
@@ -77,7 +78,7 @@ const Navbar = () => {
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
-          <span className='text-xl font-bold leading-none'>{open ? 'x' : '='}</span>
+          <span className='text-xl font-bold leading-none'>{open ? <X /> : <MenuIcon />}</span>
         </button>
       </div>
 
