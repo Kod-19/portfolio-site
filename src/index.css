@@ -82,34 +82,20 @@ body {
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    transition:
-      transform 220ms ease,
-      box-shadow 220ms ease,
-      border-color 220ms ease,
-      background 220ms ease;
+    transition: none;
   }
 
   .button-pop::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: linear-gradient(
-      105deg,
-      transparent 25%,
-      rgba(255, 255, 255, 0.22),
-      transparent 75%
-    );
-    transform: translateX(-120%);
+    display: none;
   }
 
   .button-pop:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 16px 34px rgba(47, 140, 255, 0.22);
+    transform: none;
+    box-shadow: none;
   }
 
   .button-pop:hover::after {
-    animation: shimmer 700ms ease;
+    animation: none;
   }
 }
 
